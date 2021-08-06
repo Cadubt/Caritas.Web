@@ -1,0 +1,129 @@
+// <<<<<<<<<<<<<<<<<<< GERAL >>>>>>>>>>>>>>>>>>>>>>>>>
+
+.container {
+    // grid-template-columns: 1fr minmax(920px, 4fr) 1fr;
+    background-color: rgba(227, 227, 228, 0.911);
+    max-height: fit-content;
+    align-self: center;
+  }
+  
+  .stick {
+    max-width: 80%;
+  }
+  
+  .title {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    width: 100%;
+    display: block;
+    height: 50px;
+  }
+  .titleH2 {
+    width: 100%;
+    
+  }
+  
+  .subtitle {  
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  .filterInput {
+    margin-bottom: 2.5rem;
+    border-color: white;
+  }
+  
+  .sendButton {
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  
+  .add_box {
+    margin-left: auto;
+    max-height: 50px;
+    font-size: 16px;
+    // background-image: url(./../../../assets/CaritasGestaoBG.png);
+    color: white;
+    // opacity: 0.7;
+    background-image: linear-gradient(to right, rgba(18, 18, 155, 0.883) 10%, rgb(38, 38, 114) 90%);
+  }
+  // <<<<<<<<<<<<<<<<<<< Cards >>>>>>>>>>>>>>>>>>>>>>>>>
+  
+  .cards {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: wrap;
+  }
+  
+  .shelteredCard {
+    max-width: 270px;
+    min-width: 250px;
+    height: 435px;
+    margin: 0 1rem 2.5rem;
+    float: left;
+  }
+  
+  .cardHeader{
+    grid: block;
+  }
+  
+  .photo {
+    height: 10rem;
+  }
+  
+  .shelteredName {
+    margin: 0;
+    padding: 0;
+    text-overflow: ellipsis;overflow: hidden;max-width: auto;white-space: nowrap;
+  }
+  
+  .shelteredResponsible{
+    margin: 0;
+    padding: 0;
+    max-width:130px;
+    text-overflow: ellipsis;overflow: hidden;max-width: auto;white-space: nowrap;
+  }
+  
+  .shelteredAge {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .infoGrid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+  }
+  
+  .title{
+    font-weight: 700;
+    margin: 0;
+    height: fit-content;
+  }
+  
+  // <<<<<<<<<<<<<<<<<<< Responsive >>>>>>>>>>>>>>>>>>>>>>>>>
+  
+  
+  
+  @media screen and (max-width: 1900px) {
+    .stick {
+      max-width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .shelteredCard {
+      width: 60%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .stick {
+      max-width: 80%;
+    }
+  }
