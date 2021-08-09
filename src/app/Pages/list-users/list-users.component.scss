@@ -17,9 +17,17 @@ mat-form-field, mat-form-field-wrapper, mat-form-field-flex {
     max-height: fit-content;
 }
 
+.gradientRed{
+    background: linear-gradient(90deg, rgba(88,0,0,1) 0%, rgba(136,9,9,1) 35%, rgba(252,23,74,1) 100%);
+    color:white;
+    padding-top: 10px;
+  }
+  
+
 .sendButton {
     margin-left: 5px;
     margin-top: 5px;
+    background: red;
 }
 
 form {
