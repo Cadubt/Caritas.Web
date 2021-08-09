@@ -1,0 +1,44 @@
+<div class="background">
+    <div class="caritasLogo">
+        <img src="./assets/images/LogoCaritas.png">
+    </div>
+
+
+    <div class="boxBackground">
+        <div class="transbox">
+            <div class="loginHeader">
+                <div class="textHeader">Bem vindo ao Cáritas!</div>
+                <div class="textTopic">Sistema de gestão de acolhidos da</div>
+                <div class="logoBezerra">
+                    <img class="logoLogin" alt="logoBezerradeMenezes" src="./assets/images/logoBezerradeMenezes.png">
+                </div>
+            </div>
+
+                <form class="loginForm" [formGroup]="loginForm">
+                    <mat-form-field class="example-container">
+                        <input matInput placeholder="Usuário" formControlName="userName">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-container">
+                        <input matInput
+                        formControlName="password" placeholder="Senha" [type]="hide ? 'password' : 'text'">
+                            <!-- <button mat-icon-button matSuffix  > -->
+                                <mat-icon (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <!-- </button> -->
+                            
+                    </mat-form-field>
+
+
+                    <div class="btn">
+                        <button class="entryButton" mat-raised-button color="Basic" (click)="authenticate()">Entrar</button>
+                    </div>
+
+                    <div class="textHeader">Esqueci minha senha</div>
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>

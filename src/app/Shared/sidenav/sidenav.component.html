@@ -1,0 +1,5 @@
+<mat-nav-list>
+    <a mat-list-item *ngFor="let menu of menuList" (click)="navigateTo(menu.pageName)">
+        <mat-icon>{{menu.menuIcon}}</mat-icon> <span class="nav-caption">{{menu.menuTittle}}</span>
+    </a>
+</mat-nav-list>
