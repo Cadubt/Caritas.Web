@@ -9,6 +9,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HeaderModule } from './Shared/header/header.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { SidenavModule } from './Shared/sidenav/sidenav.module';
 import { FooterModule } from './Shared/footer/footer.module';
 import { DashboardModule } from './Pages/dashboard/dashboard.module';
@@ -29,6 +30,7 @@ import { LogInfoModule } from './Pages/log-info/log-info.module';
 import { AuthorizeSheltRegisterModule } from './Pages/authorize-shelt-register/authorize-shelt-register.module';
 import { LoginModule } from './Pages/login/login.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -42,6 +44,7 @@ import { LoginModule } from './Pages/login/login.module';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatTableModule,
     HeaderModule,
     SidenavModule,
     FooterModule,

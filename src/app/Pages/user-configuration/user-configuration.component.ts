@@ -24,16 +24,16 @@ export class UserConfigurationComponent implements OnInit {
 
   }
 
-  error:any;
-  usuario:any;
-  UserModel:any;
+  error: any;
+  usuario: any;
+  UserModel: any;
 
   ngOnInit(): void {
     this.getUserConfigurationData();
     this.createForm();
   }
 
-  onNavigateTo(pageName:any) {
+  onNavigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
   }
 
@@ -67,49 +67,14 @@ export class UserConfigurationComponent implements OnInit {
         console.log(this.usuario)
         this.usuario = res.data;
         console.log(this.usuario)
-        
-
       })
 
   }
 
   onSubmit() {
-    /*const actualPassword = this.userConfigurationForm.get('password').value;
-    const newPassword = this.userConfigurationForm.get('newPassword').value;
-    const repeatPassword = this.userConfigurationForm.get('repeatPassword').value;
+    const actualPassword = this.userConfigurationForm.get('name');
 
-    this.usuario.name = this.userConfigurationForm.get('name').value;
-    this.usuario.email = this.userConfigurationForm.get('email').value;
-
-
-
-    //Ele quer atualizar a senha
-    if (actualPassword != null && actualPassword != '') {
-      if (actualPassword == this.usuario.password) {
-        if (newPassword == repeatPassword) {
-          
-          this.usuario.name = this.userConfigurationForm.get('name').value;
-          this.usuario.email = this.userConfigurationForm.get('email').value;
-          this.usuario.password = this.userConfigurationForm.get('newPassword').value;
-          this.userConfigurationService.updateUser(this.usuario).subscribe(res => { });
-        }
-        else {
-          alert('As senhas não coincidem');
-          window.location.reload();
-        }
-      }
-      else{
-        alert("Sua senha atual esta errada");
-        window.location.reload();
-      }      
-    }
-    //Ele não quer atualizar a senha
-    else {
-      this.usuario.name = this.userConfigurationForm.get('name').value;
-      this.usuario.email = this.userConfigurationForm.get('email').value;
-      this.userConfigurationService.updateUser(this.usuario).subscribe(res => { });
-    }*/
-
-    alert("Usuário atualizado com sucesso");
+    console.log();
+    
   }
 }

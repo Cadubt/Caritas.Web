@@ -5,14 +5,17 @@
         </mat-card-header>
         <mat-card-content>
             <div class="send">
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/admin-configuration')">
+                <button class="sendButton" mat-raised-button color="primary"
+                    (click)="onNavigateTo('/admin-configuration')">
                     <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">engineering </mat-icon>
-                        Configurações de usuários
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">engineering
+                    </mat-icon>
+                    Configurações de usuários
                 </button>
                 <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/list-users')" disabled>
                     <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">view_lists</mat-icon>
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">view_lists
+                    </mat-icon>
                     Lista de todos os usuários
                 </button>
                 <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('//log-info')">
@@ -32,10 +35,33 @@
         </mat-card-header>
         <mat-card-content>
             <br />
-            <mat-card-subtitle>Ola </mat-card-subtitle>
-            <mat-card-subtitle>Esta tela exibe todos os Usuários cadastrado no nosso sistema</mat-card-subtitle>
+            <table mat-table="dataSource" class="mat-elevation-z8">
 
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                </ng-container>
 
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="weight">
+                    <th mat-header-cell *matHeaderCellDef> Weight </th>
+                    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="symbol">
+                    <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                </ng-container>
+
+            </table>
         </mat-card-content>
     </mat-card>
 

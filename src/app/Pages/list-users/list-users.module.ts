@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 
 import { ListUsersComponent } from './list-users.component';
 
@@ -25,7 +26,8 @@ import { ListUsersComponent } from './list-users.component';
     MatButtonModule,
     MatDatepickerModule,
     MatIconModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule
   ],
   exports:[ListUsersComponent], 
   schemas: []
