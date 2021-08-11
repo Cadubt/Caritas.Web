@@ -10,7 +10,7 @@ mat-form-field, mat-form-field-wrapper, mat-form-field-flex {
     // grid-template-columns: 1fr minmax(920px, 4fr) 1fr;
     background-color: rgba(227, 227, 228, 0.911);
     max-height: fit-content;
-    width: 80%;
+    width: 97%;
 }
 
 .card {
@@ -36,6 +36,6 @@ form {
 
 @media screen and (max-width: 1700px) {
     .container {
-        width: 90%;
+        width: 97%;
     }
 }

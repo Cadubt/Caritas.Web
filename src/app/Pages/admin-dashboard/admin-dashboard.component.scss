@@ -8,25 +8,20 @@ mat-form-field, mat-form-field-wrapper, mat-form-field-flex {
 
 .container {
     // grid-template-columns: 1fr minmax(920px, 4fr) 1fr;
-    background-color: WhiteSmoke;
+    background-color: rgb(153 153 208 / 91%);
     max-height: fit-content;
-    width: 80%;
+    width: 97%;
 }
 
 .card {
     max-height: fit-content;
 }
 
-.gradientRed{
-    background: linear-gradient(90deg, rgba(88,0,0,1) 0%, rgba(136,9,9,1) 35%, rgba(252,23,74,1) 100%);
-    color:white;
-    padding-top: 10px;
-}
 
 .sendButton {
     margin-left: 5px;
     margin-top: 5px;
-    background: red;
+    background: rgba(47, 0, 255, 0.837);
 }
 
 form {
@@ -37,12 +32,14 @@ form {
     // grid-gap: 5px;
 }
 
+
+
 //   <<<<<< FORM >>>>>>
 
 
 
 @media screen and (max-width: 1700px) {
     .container {
-        width: 90%;
+        width: 97%;
     }
 }
