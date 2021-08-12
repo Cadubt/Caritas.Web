@@ -10,6 +10,7 @@ import { HeaderModule } from './Shared/header/header.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
 import { SidenavModule } from './Shared/sidenav/sidenav.module';
 import { FooterModule } from './Shared/footer/footer.module';
 import { DashboardModule } from './Pages/dashboard/dashboard.module';
@@ -45,6 +46,7 @@ import { LoginModule } from './Pages/login/login.module';
     MatToolbarModule,
     MatIconModule,
     MatTableModule,
+    MatDialogModule,
     HeaderModule,
     SidenavModule,
     FooterModule,
