@@ -13,6 +13,7 @@ import { NewShelteredComponent } from './Pages/new-sheltered/new-sheltered.compo
 import { PastVisitComponent } from './Pages/past-visit/past-visit.component';
 import { RecordVisitComponent } from './Pages/record-visit/record-visit.component';
 import { ShelteredAppointmentsComponent } from './Pages/sheltered-appointments/sheltered-appointments.component';
+import { ShelteredComponent } from './Pages/sheltered/sheltered.component';
 import { SocialServiceComponent } from './Pages/social-service/social-service.component';
 import { UserConfigurationComponent } from './Pages/user-configuration/user-configuration.component';
 import { UserDashboardComponent } from './Pages/user-dashboard/user-dashboard.component';
@@ -82,6 +83,10 @@ const routes: Routes = [
   {
     path: 'authorize-shelt-register',
     component: AuthorizeSheltRegisterComponent ,
+  },
+  {
+    path: 'sheltered',
+    component: ShelteredComponent ,
   },
 
 ];

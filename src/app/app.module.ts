@@ -28,6 +28,7 @@ import { ListUsersModule } from './Pages/list-users/list-users.module';
 import { LogInfoModule } from './Pages/log-info/log-info.module';
 import { AuthorizeSheltRegisterModule } from './Pages/authorize-shelt-register/authorize-shelt-register.module';
 import { LoginModule } from './Pages/login/login.module';
+import { ShelteredModule } from './Pages/sheltered/sheltered.module';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { LoginModule } from './Pages/login/login.module';
     AdminConfigurationModule,
     ListUsersModule,
     LogInfoModule,
-    AuthorizeSheltRegisterModule
+    AuthorizeSheltRegisterModule,
+    ShelteredModule
   ],
   providers: [],
   bootstrap: [AppComponent]
