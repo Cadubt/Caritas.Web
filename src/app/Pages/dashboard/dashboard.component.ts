@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
-
-
 
 @Component({
   selector: 'app-dashboard',
@@ -15,8 +13,10 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private shelteredService: ShelteredService,
-    private router: Router
+    private router: Router,    
   ) { }
+
+  
 
   ngOnInit(): void {
     this.getShelteredList();
@@ -26,8 +26,13 @@ export class DashboardComponent implements OnInit {
     this.getShelteredList();
   }
 
-  onNavigateTo(pageName: any) {
-    this.router.navigate([`/${pageName}`]);
+  onNavigateTo(pageName: any, SheltId?: any) {
+    if (SheltId !== null){
+      const SheltNavigationInfo: NavigationExtras = {state:{id:SheltId}}
+      this.router.navigate([`/${pageName}`, SheltNavigationInfo.state]);
+    }
+    else
+      this.router.navigate([`/${pageName}`]);
   }
 
   applyFilter(event: Event) {

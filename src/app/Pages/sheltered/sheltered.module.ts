@@ -9,11 +9,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 
 import { MatIconModule } from '@angular/material/icon';
-import { SocialServiceComponent } from './social-service.component';
-
+import { ShelteredComponent } from './sheltered.component';
 
 @NgModule({
-  declarations: [SocialServiceComponent],
+  declarations: [ShelteredComponent],
   imports: [
     CommonModule,
     MatCardModule,
@@ -26,7 +25,7 @@ import { SocialServiceComponent } from './social-service.component';
     MatDatepickerModule,
     MatIconModule
   ],
-  exports:[SocialServiceComponent], 
+  exports:[ShelteredComponent], 
   schemas: []
 })
-export class SocialServiceModule { }
+export class ShelteredModule { }

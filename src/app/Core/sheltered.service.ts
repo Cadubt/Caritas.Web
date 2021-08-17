@@ -17,13 +17,22 @@ export class ShelteredService {
    * Method to get a List of Sheltered Items
    * @returns 
    */
-  getShelteredList() {
-    var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1`;
+  getShelteredList(sheltStatus?: bigint) {
+    console.log(sheltStatus)
+    if (sheltStatus !== undefined)    
+      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=${sheltStatus}`;
+    else
+      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1`;
+    return this.http.get(urlString)
+  }
+
+  getSheltered(sheltId: bigint) {
+    var urlString = `${API_URL}Sheltered?id=${sheltId}`;
     return this.http.get(urlString)
   }
 
   createSheltered(FormData: any): Observable<any> {
     return this.http.post(`${API_URL}Sheltered/Create`, FormData);
   }
-  
+
 }
