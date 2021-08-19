@@ -27,7 +27,8 @@ export class ShelteredService {
   }
 
   getSheltered(sheltId: bigint) {
-    var urlString = `${API_URL}Sheltered?id=${sheltId}`;
+    var urlString = `${API_URL}Sheltered/${sheltId}`;
+    console.log(`Retorno aqui: ${urlString}`);
     return this.http.get(urlString)
   }
 

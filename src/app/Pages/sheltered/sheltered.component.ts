@@ -20,7 +20,6 @@ export class ShelteredComponent implements OnInit {
         this.shelteredService.getSheltered(this.SheltId).subscribe(
             (res: any) => {
                 this.shelteredModel = res.data;
-                console.log(this.shelteredModel);
             },
             (error: any) => {
                 this.erro = error;
