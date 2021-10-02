@@ -14,7 +14,7 @@ export class AdminConfigurationService {
   ) { }
 
   getUserById(){
-    var urlString=`${API_URL}User/GetUserById?UserId=6`;
+    var urlString=`${API_URL}User/GetUserById?UserId=1`;
     return this.http.get(urlString)
   }
 

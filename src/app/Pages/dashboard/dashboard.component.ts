@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.getShelteredList();
+    this.getShelteredList();    
   }
 
   ngAfterViewInit() {
@@ -47,6 +47,7 @@ export class DashboardComponent implements OnInit {
     this.shelteredService.getShelteredList().subscribe(
       (res: any) => {
         this.shelteredModel = res.data;
+        console.log(res.data);
       },
       (error: any) => {
         this.erro = error;
