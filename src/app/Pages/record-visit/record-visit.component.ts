@@ -43,7 +43,7 @@ export class RecordVisitComponent implements OnInit {
   }
   onSubmit() {
     const formData = this.recordVisitForm.getRawValue();
-    // console.log(formData)
+    console.log(formData)
     this.recordVisitService.createVisit(formData).subscribe(res => { });
     window.alert("Salvo com Sucesso")
    // window.location.href = "past-visit"; // vai para a pasta: "past-visit"

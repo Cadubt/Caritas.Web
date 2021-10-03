@@ -38,7 +38,7 @@ export class NewShelteredComponent implements OnInit {
       address: [null],
       bloodTyping: [null],
       entryDate: [null],
-      perfilImage: 'https://rochaemouta.com.br/wp-content/uploads/2017/05/carencia.jpg',
+      perfilImage: [null],
       deceaseAt: [null],
       statusId: 1,
       createdAt: [null],
@@ -50,7 +50,8 @@ export class NewShelteredComponent implements OnInit {
     
     const formData = this.shelteredForm.getRawValue();
     formData.entryDate = formData.birthDate;
-    // console.log(formData)
+    formData.perfilImage = formData.name.replace(/\s/g, '');
+    console.log(formData)
     this.shelteredService.createSheltered(formData).subscribe(res => { });
     window.location.href = "dashboard";
   }
