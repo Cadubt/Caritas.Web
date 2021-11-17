@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+// import { stringify } from 'querystring';
 
 const API_URL = environment.BASE_URL_API;
 
@@ -24,7 +25,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private snackbar: MatSnackBar,
-    ) { }
+  ) { }
 
 
   ngOnInit(): void {
@@ -33,44 +34,44 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.createForm();
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.AuthService.hideMenu();
     this.AuthService.isMenuShowing = false;
   }
-  
-  fazerLogin(){
-    
-this.AuthService.fazerLogin();
+
+  fazerLogin(email:string,password:string) {
+
+    this.AuthService.fazerLogin(email,password);
   }
 
-  createForm(){
+  createForm() {
     this.loginForm = this.formBuilder.group({
-userName: [null, [Validators.required]],
-password: [null, [Validators.required]]
+      userName: [null, [Validators.required]],
+      password: [null, [Validators.required]]
     })
   }
 
-authenticate( ) {
-  this.AuthService.fazerLogin();
-  // const userName = this.loginForm.get('userName').value;
-  // const options = {
-  //   headers: new HttpHeaders({
-  //     'Content-Type': 'application/json'
-  //   }),
-  //   body: userName,
-  // };
-  // this.http.get(API_URL + 'api/User/GetUser/' + userName).subscribe((res: any) => {
-  // console.log("deu certo esssa bagaça: ", res.data)
+  authenticate() {
+    this.AuthService.fazerLogin('cadubt@gmail.com','admin');
+    // const userName = this.loginForm.get('userName').value;
+    // const options = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type': 'application/json'
+    //   }),
+    //   body: userName,
+    // };
+    // this.http.get(API_URL + 'api/User/GetUser/' + userName).subscribe((res: any) => {
+    // console.log("deu certo esssa bagaça: ", res.data)
 
-  // }, err => {
-  //   this.snackbar.open(
-  //     'nada a ver brow, tenta denovo',
-  //     'Tendeu',
-  //     { horizontalPosition: 'right', verticalPosition: 'top', duration: 4000 });
-  //   this.loginForm.controls['userName'].reset();
-  //   this.loginForm.controls['password'].reset();
-  // })
-}
+    // }, err => {
+    //   this.snackbar.open(
+    //     'nada a ver brow, tenta denovo',
+    //     'Tendeu',
+    //     { horizontalPosition: 'right', verticalPosition: 'top', duration: 4000 });
+    //   this.loginForm.controls['userName'].reset();
+    //   this.loginForm.controls['password'].reset();
+    // })
+  }
 
 
 

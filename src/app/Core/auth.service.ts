@@ -21,7 +21,7 @@ export class AuthService {
 
 
 
-  fazerLogin(){
+  fazerLogin(email:string,password:string){
     this.showMenuEmitter.emit(true);
     this.isMenuShowing = true;
     return this.router.navigate(['/dashboard'])
