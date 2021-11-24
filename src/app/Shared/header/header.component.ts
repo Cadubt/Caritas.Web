@@ -7,13 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  userName = sessionStorage.getItem("userName");
   @Output() public sidenavToggle = new EventEmitter();
+  
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-
+    console.log("Aqui o UserName: " + this.userName);
   }
 
   backToLogin(){

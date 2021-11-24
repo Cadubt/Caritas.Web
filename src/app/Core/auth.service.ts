@@ -30,4 +30,7 @@ export class AuthService {
   hideMenu(){
     return this.showMenuEmitter.emit(false);
   }
+  showMenu(){
+    return this.showMenuEmitter.emit(true);
+  }
 }

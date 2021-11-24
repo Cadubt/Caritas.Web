@@ -16,11 +16,11 @@
 
                 <form class="loginForm" [formGroup]="loginForm">
                     <mat-form-field class="example-container">
-                        <input id="email" matInput placeholder="Usuário" formControlName="userName">
+                        <input matInput placeholder="Usuário" formControlName="email">
                     </mat-form-field>
 
                     <mat-form-field class="example-container">
-                        <input id="pass"  matInput
+                        <input  matInput
                         formControlName="password" placeholder="Senha" [type]="hide ? 'password' : 'text'">
                             <!-- <button mat-icon-button matSuffix  > -->
                                 <mat-icon (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
