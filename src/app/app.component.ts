@@ -9,7 +9,7 @@ import { AuthService } from './Core/auth.service';
 })
 export class AppComponent implements AfterViewChecked {
   title = 'Caritas Gestão';
-  showMenu = true
+  showMenu = true;
 
   constructor (
     private authService: AuthService,
@@ -21,7 +21,7 @@ export class AppComponent implements AfterViewChecked {
       show => this.showMenu = show
     )
     this.changeDetectorRef.detectChanges();
-    // this.showMenu = this.authService.isMenuShowing
+    this.showMenu = this.authService.isMenuShowing
   }
   ngAfterViewChecked(){
     this.authService.showMenuEmitter.subscribe(

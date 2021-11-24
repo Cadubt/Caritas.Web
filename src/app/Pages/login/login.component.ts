@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { AuthService } from 'src/app/Core/auth.service';
-// import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -18,59 +18,76 @@ const API_URL = environment.BASE_URL_API;
 export class LoginComponent implements OnInit, AfterViewInit {
   loginForm!: FormGroup;
   hide = true;
-  showMenu = false;
+  showMenu = true;
 
   constructor(
-    private AuthService: AuthService,
+    private authService: AuthService,
     private http: HttpClient,
     private formBuilder: FormBuilder,
     private snackbar: MatSnackBar,
+    private router: Router, 
   ) { }
 
 
   ngOnInit(): void {
-    this.AuthService.hideMenu();
-    this.AuthService.isMenuShowing = false;
+    this.authService.hideMenu();
+    this.authService.isMenuShowing = false;
     this.createForm();
   }
 
   ngAfterViewInit() {
-    this.AuthService.hideMenu();
-    this.AuthService.isMenuShowing = false;
+    this.authService.hideMenu();
+    this.authService.isMenuShowing = false;
   }
 
-  fazerLogin(email:string,password:string) {
+  // fazerLogin(email:string,password:string) {
 
-    this.AuthService.fazerLogin(email,password);
-  }
+  //   this.AuthService.fazerLogin(email,password);
+
+  // }
 
   createForm() {
     this.loginForm = this.formBuilder.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]]
+      email: [''],
+      password: ['']
     })
   }
 
   authenticate() {
-    this.AuthService.fazerLogin('cadubt@gmail.com','admin');
-    // const userName = this.loginForm.get('userName').value;
-    // const options = {
-    //   headers: new HttpHeaders({
-    //     'Content-Type': 'application/json'
-    //   }),
-    //   body: userName,
-    // };
-    // this.http.get(API_URL + 'api/User/GetUser/' + userName).subscribe((res: any) => {
-    // console.log("deu certo esssa bagaça: ", res.data)
+    const email = this.loginForm.get('email')!.value;
+    const password = this.loginForm.get('password')!.value;
 
-    // }, err => {
-    //   this.snackbar.open(
-    //     'nada a ver brow, tenta denovo',
-    //     'Tendeu',
-    //     { horizontalPosition: 'right', verticalPosition: 'top', duration: 4000 });
-    //   this.loginForm.controls['userName'].reset();
-    //   this.loginForm.controls['password'].reset();
-    // })
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      body: this.loginForm,
+    };
+    const formData = this.loginForm.getRawValue();
+
+    this.http.post(API_URL + 'User/login/', formData).subscribe((res: any) => {
+      console.log("Usuário Logado no Sistema ", res);
+
+      sessionStorage.setItem('token',res.token)
+      sessionStorage.setItem('userName',res.user.id)
+      sessionStorage.setItem('userName',res.user.name)
+      sessionStorage.setItem('userRole',res.user.role)
+      sessionStorage.setItem('userEmail',res.user.email)
+      sessionStorage.setItem('userDeleted',res.user.deletedAt)
+      this.onNavigateTo(["dashboard"]);
+
+    }, err => {
+      this.snackbar.open(        
+        'Não foi possível se conectar',
+        'Usuário ou senha invalidos',
+        { horizontalPosition: 'right', verticalPosition: 'top', duration: 4000 });
+      this.loginForm.controls['email'].reset();
+      this.loginForm.controls['password'].reset();
+    })
+  }
+
+  onNavigateTo(pageName: any){
+    this.router.navigate([`/${pageName}`]);
   }
 
 

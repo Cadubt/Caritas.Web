@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
+import { AuthService } from 'src/app/Core/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,8 +11,10 @@ import { ShelteredService } from 'src/app/Core/sheltered.service';
 export class DashboardComponent implements OnInit {
   shelteredModel: any;
   erro: any;
+  showMenu = true;
 
   constructor(
+    private authService: AuthService,
     private shelteredService: ShelteredService,
     private router: Router,    
   ) { }
@@ -20,10 +23,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getShelteredList();    
+    this.authService.showMenu();
   }
 
   ngAfterViewInit() {
     this.getShelteredList();
+    this.authService.showMenu();
   }
 
   onNavigateTo(pageName: any, SheltId?: any) {

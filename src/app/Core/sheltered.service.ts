@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -19,11 +19,14 @@ export class ShelteredService {
    */
   getShelteredList(sheltStatus?: bigint) {
     console.log(sheltStatus)
+    
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+
     if (sheltStatus !== undefined)    
       var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=${sheltStatus}`;
     else
       var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1`;
-    return this.http.get(urlString)
+    return this.http.get(urlString, {headers:headerToken})
   }
 
   getSheltered(sheltId: bigint) {
