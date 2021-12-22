@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       console.log("Usuário Logado no Sistema ", res);
 
       sessionStorage.setItem('token',res.token)
-      sessionStorage.setItem('userName',res.user.id)
+      sessionStorage.setItem('userId',res.user.id)
       sessionStorage.setItem('userName',res.user.name)
       sessionStorage.setItem('userRole',res.user.role)
       sessionStorage.setItem('userEmail',res.user.email)

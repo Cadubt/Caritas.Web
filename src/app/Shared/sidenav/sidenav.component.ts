@@ -15,6 +15,7 @@ export class SidenavComponent implements OnInit {
               private service: SidenavService) { }
 
   ngOnInit(): void {
+    
     this.getMenuList()
   }
   public onSidenavClose = () => {

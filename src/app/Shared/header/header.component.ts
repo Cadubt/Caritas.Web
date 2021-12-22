@@ -9,15 +9,23 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   userName = sessionStorage.getItem("userName");
   @Output() public sidenavToggle = new EventEmitter();
-  
+
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log("Aqui o UserName: " + this.userName);
+    if(sessionStorage.getItem("token") == null){
+      this.router.navigate(['/'])
+    }
   }
 
-  backToLogin(){
+  backToLogin() {
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userId')
+    sessionStorage.removeItem('userName')
+    sessionStorage.removeItem('userRole')
+    sessionStorage.removeItem('userEmail')
+    sessionStorage.removeItem('userDeleted')
     return this.router.navigate(['/'])
   }
 
