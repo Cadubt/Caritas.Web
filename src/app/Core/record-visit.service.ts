@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
@@ -20,7 +20,8 @@ export class RecordVisitService {
    * @returns 
    */
     createVisit(FormData: any): Observable<any> {
-      return this.http.post(`${API_URL}Visitor/CreateVisitors`, FormData);
+      const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+      return this.http.post(`${API_URL}Visitor/CreateVisitors`, FormData, {headers:headerToken});
     }
 
 }

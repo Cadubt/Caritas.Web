@@ -30,13 +30,16 @@ export class ShelteredService {
   }
 
   getSheltered(sheltId: bigint) {
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+
     var urlString = `${API_URL}Sheltered/${sheltId}`;
-    console.log(`Retorno aqui: ${urlString}`);
-    return this.http.get(urlString)
+    return this.http.get(urlString, {headers:headerToken})
   }
 
   createSheltered(FormData: any): Observable<any> {
-    return this.http.post(`${API_URL}Sheltered/Create`, FormData);
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+
+    return this.http.post(`${API_URL}Sheltered/Create`, FormData, {headers:headerToken})
   }
 
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -40,11 +40,13 @@ export class ScheduleSheetService {
   }
 
   createSchadule(FormData: any): Observable<any> {
-    return this.http.post(`${API_URL}ScheduleSheet/Create`, FormData);
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+    return this.http.post(`${API_URL}ScheduleSheet/Create`, FormData, {headers:headerToken});
   }
 
   getScheduleList() {
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
     var urlString = `${API_URL}ScheduleSheet/ListScheduleSheet`;
-    return this.http.get(urlString)
+    return this.http.get(urlString, {headers:headerToken});
   }
 }

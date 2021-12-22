@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -14,12 +14,15 @@ export class UserConfigurationService {
   ) { }
 
   getUserById(){
-    var urlString=`${API_URL}User/GetUserById?UserId=1`;
-    return this.http.get(urlString)
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+    var urlString=`${API_URL}User/GetUserById?UserId=${sessionStorage.getItem("userId")}`;
+    return this.http.get(urlString, {headers:headerToken});
   }
 
   updateUser(FormData: any): Observable<any> {
-    return this.http.put(`${API_URL}User/Update`, FormData);
+    console.log(FormData);
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+    return this.http.put(`${API_URL}User/Update`, FormData, {headers:headerToken});
   }
 
 }

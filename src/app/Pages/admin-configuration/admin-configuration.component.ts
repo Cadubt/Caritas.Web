@@ -74,38 +74,60 @@ export class AdminConfigurationComponent implements OnInit {
 
 
   onSubmit() {
-    // const actualPassword = this.adminConfigurationForm.get('password').value;
-    // const newPassword = this.adminConfigurationForm.get('newPassword').value;
-    // const repeatPassword = this.adminConfigurationForm.get('repeatPassword').value;
+    const actualPassword = this.adminConfigurationForm.get('password')!.value;
+    const newPassword = this.adminConfigurationForm.get('newPassword')!.value;
+    const repeatPassword = this.adminConfigurationForm.get('repeatPassword')!.value;
 
-    // this.usuario.name = this.adminConfigurationForm.get('name').value;
-    // this.usuario.email = this.adminConfigurationForm.get('email').value;
-    // if (actualPassword != null && actualPassword != '') {
-    //   if (actualPassword == this.usuario.password) {
-    //     if (newPassword == repeatPassword) {
+    this.usuario.name = this.adminConfigurationForm.get('name')!.value;
+    this.usuario.email = this.adminConfigurationForm.get('email')!.value;
+    
+    //Ele quer atualizar a senha
+    if (actualPassword != null && actualPassword != '') {
+      if (actualPassword == this.usuario.password) {
+        if (newPassword == repeatPassword) {
 
-    //       this.usuario.name = this.adminConfigurationForm.get('name').value;
-    //       this.usuario.email = this.adminConfigurationForm.get('email').value;
-    //       this.usuario.password = this.adminConfigurationForm.get('newPassword').value;
-    //       this.adminConfigurationService.updateUser(this.usuario).subscribe(res => { });
-    //     }
-    //     else {
-    //       alert('As senhas não coincidem');
-    //       window.location.reload();
-    //     }
-    //   }
-    //   else {
-    //     alert("Sua senha atual esta errada");
-    //     window.location.reload();
-    //   }
-    // }
-    // //Ele não quer atualizar a senha
-    // else {
-    //   this.usuario.name = this.adminConfigurationForm.get('name').value;
-    //   this.usuario.email = this.adminConfigurationForm.get('email').value;
-    //   this.adminConfigurationService.updateUser(this.usuario).subscribe(res => { });
-    // }
+          this.usuario.name = this.adminConfigurationForm.get('name')!.value;
+          this.usuario.email = this.adminConfigurationForm.get('email')!.value;
+          this.usuario.password = this.adminConfigurationForm.get('newPassword')!.value;
+          if ((this.usuario.name == null) || (this.usuario.name == "")) {
+            this.usuario.name = sessionStorage.getItem("userName");
+          }
+          if ((this.usuario.email == null) || (this.usuario.email == "")) {
+            this.usuario.email = sessionStorage.getItem("userEmail");
+          }
+          this.adminConfigurationService.updateUser(this.usuario).subscribe(res => { });
 
-    alert("Usuário atualizado com sucesso");
+          alert("Usuário atualizado com sucesso");
+          window.location.reload();
+        }
+        else {
+          alert('As senhas não coincidem');
+          window.location.reload();
+        }
+      }
+      else {
+        alert("Sua senha atual esta errada");
+        window.location.reload();
+      }
+
+
+    }
+    //Ele não quer atualizar a senha
+    else {
+      this.usuario.name = this.adminConfigurationForm.get('name')!.value;
+      this.usuario.email = this.adminConfigurationForm.get('email')!.value;
+      if ((this.usuario.name == null) || (this.usuario.name == "")) {
+        this.usuario.name = sessionStorage.getItem("userName");
+      }
+      if ((this.usuario.email == null) || (this.usuario.email == "")) {
+        this.usuario.email = sessionStorage.getItem("userEmail");
+      }
+      this.adminConfigurationService.updateUser(this.usuario).subscribe(res => { });
+
+      alert("Usuário atualizado com sucesso");
+      sessionStorage.setItem("userName",this.usuario.name)
+      sessionStorage.setItem("userEmail",this.usuario.email)
+      window.location.reload();
+    }
   }
 }
