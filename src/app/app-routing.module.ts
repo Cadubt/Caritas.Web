@@ -15,7 +15,6 @@ import { RecordVisitComponent } from './Pages/record-visit/record-visit.componen
 import { ShelteredAppointmentsComponent } from './Pages/sheltered-appointments/sheltered-appointments.component';
 import { ShelteredComponent } from './Pages/sheltered/sheltered.component';
 import { SocialServiceComponent } from './Pages/social-service/social-service.component';
-import { TestComponent } from './Pages/test-componet/test.component';
 import { UserConfigurationComponent } from './Pages/user-configuration/user-configuration.component';
 import { UserDashboardComponent } from './Pages/user-dashboard/user-dashboard.component';
 
@@ -88,10 +87,6 @@ const routes: Routes = [
   {
     path: 'sheltered',
     component: ShelteredComponent ,
-  },
-  {
-    path: 'test',
-    component: TestComponent ,
   },
 
 ];
