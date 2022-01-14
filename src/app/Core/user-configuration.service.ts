@@ -20,9 +20,14 @@ export class UserConfigurationService {
   }
 
   updateUser(FormData: any): Observable<any> {
-    console.log(FormData);
     const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
     return this.http.put(`${API_URL}User/Update`, FormData, {headers:headerToken});
+  }
+
+  getUsers(){
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+    var urlString=`${API_URL}User/ListUsers`;
+    return this.http.get(urlString, {headers:headerToken});
   }
 
 }
