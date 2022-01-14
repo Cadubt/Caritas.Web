@@ -5,14 +5,18 @@
         </mat-card-header>
         <mat-card-content>
             <div class="send">
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/admin-configuration')">
+                <button class="sendButton" mat-raised-button color="primary"
+                    (click)="onNavigateTo('/admin-configuration')">
                     <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">engineering </mat-icon>
-                        Configurações Administrativas
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">engineering
+                    </mat-icon>
+                    Configurações Administrativas
                 </button>
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/list-users')" disabled>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/list-users')"
+                    disabled>
                     <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">view_lists</mat-icon>
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">view_lists
+                    </mat-icon>
                     Lista de todos os usuários
                 </button>
                 <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('//log-info')">
@@ -35,6 +39,39 @@
             <mat-card-subtitle>Ola </mat-card-subtitle>
             <mat-card-subtitle>Esta tela exibe todos os Usuários cadastrado no nosso sistema</mat-card-subtitle>
 
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="role">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Role </th>
+                    <td mat-cell *matCellDef="let element"> {{element.role}} </td>
+                  </ng-container>
+                
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Nome </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+                
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> E-mail </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                  </ng-container>
+                
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Data da Criação </th>
+                    <td mat-cell *matCellDef="let element"> {{element.createdAt | date:'dd/MM/yyyy'}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="deletedAt">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Data da exclusão </th>
+                    <td mat-cell *matCellDef="let element"> {{element.deletedAt | date:'dd/MM/yyyy'}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
 
         </mat-card-content>
     </mat-card>

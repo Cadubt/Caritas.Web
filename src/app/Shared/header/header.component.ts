@@ -22,12 +22,6 @@ export class HeaderComponent implements OnInit {
     (sessionStorage.getItem("userEmail") == null) ||
     (sessionStorage.getItem("userDeleted") != "null")){
       this.router.navigate(['/'])
-      alert(sessionStorage.getItem("token") + " | " +
-      sessionStorage.getItem("userId") + " | " +
-      sessionStorage.getItem("userName") + " | " +
-      sessionStorage.getItem("userRole") + " | " +
-      sessionStorage.getItem("userEmail") + " | " +
-      sessionStorage.getItem("userDeleted"))
     }
   }
 

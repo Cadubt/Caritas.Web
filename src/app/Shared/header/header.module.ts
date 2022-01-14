@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-// import { SidenavModule } from '../../sidenav/sidenav.module';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [HeaderComponent],
@@ -11,7 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CommonModule,
     MatIconModule,
     MatToolbarModule,
-    // SidenavModule 
+    MatTableModule
   ],
   exports: [
     HeaderComponent,
