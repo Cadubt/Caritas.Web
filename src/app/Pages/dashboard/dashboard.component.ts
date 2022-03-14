@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
 import { AuthService } from 'src/app/Core/auth.service';
+import { Pipe, PipeTransform } from '@angular/core';@Pipe({
+  name: 'myfilter',
+  pure: false
+})
 
 @Component({
   selector: 'app-dashboard',
@@ -42,8 +46,9 @@ export class DashboardComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.shelteredModel.filter = filterValue.trim().toLowerCase();
-  }
+    var filterargs = filterValue.trim().toLowerCase();
+    console.log(filterargs);
+  }  
 
   /**
    * Method to get a List of Sheltered Items
@@ -59,5 +64,7 @@ export class DashboardComponent implements OnInit {
       }
     );
   }
+
+  
 
 }

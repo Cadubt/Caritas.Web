@@ -26,6 +26,20 @@ mat-form-field-flex {
     max-height: fit-content;
 }
 
+table{
+    width:100%;
+}
+
+.bgBlue{
+    background-color: #3f51b5;
+    color: white;
+}
+
+.filterInput {
+    margin-bottom: 2.5rem;
+    border-color: white;
+  }
+
 .sendButton {
     margin-left: 5px;
     margin-top: 5px;

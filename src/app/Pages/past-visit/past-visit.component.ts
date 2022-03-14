@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { PastVistService } from 'src/app/Core/past-visit.service';
 
@@ -10,6 +12,11 @@ import { PastVistService } from 'src/app/Core/past-visit.service';
   styleUrls: ['./past-visit.component.scss']
 })
 export class PastVisitComponent implements OnInit {
+  userName = sessionStorage.getItem("userName");
+  displayedColumns: string[] = ['adress','kinshipId','name','phone','rg','visitDate'];
+  dataSource: any;
+  date = new FormControl(new Date());
+  serializedDate = new FormControl(new Date().toISOString());
 
   kinshipList: string[] = [
     '.',
@@ -59,7 +66,9 @@ export class PastVisitComponent implements OnInit {
   getVistorList() {
     this.pastVisitService.getVistorList().subscribe(
       (res: any) => {
-        this.visitorModel = res.data;
+        this.dataSource = new MatTableDataSource(res.data);
+        console.log(this.dataSource);
+        
 
         //Varedura na lista de visitantes
         //for (let v = 0; v < this.visitorModel.length; v++) // jeito simplificado tradicional de escrever for 
@@ -85,6 +94,20 @@ export class PastVisitComponent implements OnInit {
         this.Error = error;
       }
     )
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  OnDateChange(event:Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    alert("filter Value" + filterValue);
+    this.dataSource.filter = filterValue;
+    if(this.dataSource.paginator){
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 }
