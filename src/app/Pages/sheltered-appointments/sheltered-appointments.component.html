@@ -3,7 +3,7 @@
     <mat-card class="card" style="height: 100px;">
       <mat-card-header>
         <mat-card-title>
-          Assistencia Social / <b>Todas as Entrevistas</b>
+          Serviço Social / <b>Todas as Entrevistas</b>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
@@ -21,6 +21,18 @@
               aria-hidden="true">apps</mat-icon>
             Entrevistas Cadastradas
           </button>
+          <button mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered')" class="sendButton">
+            <mat-icon _ngcontent-rex-c82="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
+              aria-hidden="true">
+              elderly</mat-icon>
+            &nbsp; Adicionar novo acolhido
+          </button>
+          <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/dashboard')">
+            <mat-icon _ngcontent-rex-c82="" role="img"
+                class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                supervised_user_circle</mat-icon>
+            Visualizar Acolhidos
+        </button>     
         </div>
       </mat-card-content>
   

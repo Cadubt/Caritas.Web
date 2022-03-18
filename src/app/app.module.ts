@@ -29,10 +29,12 @@ import { LogInfoModule } from './Pages/log-info/log-info.module';
 import { AuthorizeSheltRegisterModule } from './Pages/authorize-shelt-register/authorize-shelt-register.module';
 import { LoginModule } from './Pages/login/login.module';
 import { ShelteredModule } from './Pages/sheltered/sheltered.module';
+import { FilterPipe } from './Shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

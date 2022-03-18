@@ -2,10 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
 import { AuthService } from 'src/app/Core/auth.service';
-import { Pipe, PipeTransform } from '@angular/core';@Pipe({
-  name: 'myfilter',
-  pure: false
-})
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +12,14 @@ export class DashboardComponent implements OnInit {
   shelteredModel: any;
   erro: any;
   showMenu = true;
+  filterargs: any;
 
   constructor(
     private authService: AuthService,
     private shelteredService: ShelteredService,
     private router: Router,    
   ) { }
-
+  
   
 
   ngOnInit(): void {
@@ -47,7 +44,7 @@ export class DashboardComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     var filterargs = filterValue.trim().toLowerCase();
-    console.log(filterargs);
+    // console.log(filterargs);
   }  
 
   /**

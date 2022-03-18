@@ -1,7 +1,7 @@
 <div class="container">
     <mat-card class="card" style="height: 100px;background-color: #b1b1b1;">
          <mat-card-header>
-            <mat-card-title><b>AREA ADMINISTRATIVA - Cáritas</b></mat-card-title>
+            <mat-card-title><b>ÁREA ADMINISTRATIVA - Cáritas</b></mat-card-title>
          </mat-card-header>
          <mat-card-content>
              <div class="send">
@@ -18,8 +18,14 @@
                  <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('//log-info')">
                      <mat-icon _ngcontent-rex-c82="" role="img"
                          class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">info</mat-icon>
-                     Informações de login
+                     Log de usuários
                  </button>
+                 <button mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered-list')" class="sendButton" disabled>
+                    <mat-icon _ngcontent-rex-c82="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
+                      aria-hidden="true">
+                      elderly</mat-icon>
+                    &nbsp; Aprovação de acolhido cadastrado
+                  </button>
              </div>
          </mat-card-content>
          

@@ -1,4 +1,4 @@
-import { NgModule, LOCALE_ID} from '@angular/core';
+import { NgModule} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -31,7 +31,6 @@ import { PastVisitComponent } from './past-visit.component';
     MatListModule
   ],
   exports:[PastVisitComponent],
-  schemas: [],
-  providers: [    {provide: LOCALE_ID,      useValue: 'pt-BR'    }  ]
+  schemas: []
 })
 export class PastVisitModule { }
