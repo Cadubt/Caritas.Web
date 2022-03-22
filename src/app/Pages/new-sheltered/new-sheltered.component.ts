@@ -42,7 +42,13 @@ export class NewShelteredComponent implements OnInit {
       deceaseAt: [null],
       statusId: 1,
       createdAt: [null],
-      deletedAt: [null]
+      deletedAt: [null],
+
+      nationality: [null],
+      maritalStatus: [null],
+      city: [null],
+      neighborhood: [null],
+      residesin: [null]
     })
   }
 

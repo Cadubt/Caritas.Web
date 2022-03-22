@@ -1,4 +1,5 @@
 <div class="container">
+
     <mat-card class="card" style="height: 100px;">
         <mat-card-header>
             <mat-card-title>
@@ -7,29 +8,32 @@
         </mat-card-header>
         <mat-card-content>
             <div class="send">
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered-appointment')">
+                <button class="sendButton" mat-raised-button color="primary"
+                    (click)="onNavigateTo('/new-sheltered-appointment')">
                     <mat-icon _ngcontent-rex-c82="" role="img"
                         class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
                         person_pin_circle</mat-icon>
-                        Agendar Entrevista de Acolhimento
+                    Agendar Entrevista de Acolhimento
                 </button>
-                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/sheltered-appointments')">
+                <button class="sendButton" mat-raised-button color="primary"
+                    (click)="onNavigateTo('/sheltered-appointments')">
                     <mat-icon _ngcontent-rex-c82="" role="img"
                         class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">apps</mat-icon>
                     Entrevistas Cadastradas
                 </button>
-                <button mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered')" class="sendButton" disabled>
-                    <mat-icon _ngcontent-rex-c82="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
-                      aria-hidden="true">
-                      elderly </mat-icon>
+                <button mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered')" class="sendButton"
+                    disabled>
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                        elderly </mat-icon>
                     &nbsp; Adicionar novo acolhido
-                  </button>
+                </button>
                 <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/dashboard')">
                     <mat-icon _ngcontent-rex-c82="" role="img"
                         class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
                         supervised_user_circle</mat-icon>
                     Visualizar Acolhidos
-                </button>                
+                </button>
             </div>
         </mat-card-content>
     </mat-card>
@@ -38,67 +42,105 @@
     <mat-card class="card" style="min-height: 700px;">
         <mat-card-header>
             <mat-card-title>Ficha de cadastramento de possível acolhido</mat-card-title>
-            <mat-card-subtitle>Formulário de cadastro</mat-card-subtitle>
+            <mat-card-subtitle>Clique em <b>Cadastrar Acolhido</b> somente após preencher cada uma das 3 Etapas</mat-card-subtitle>
         </mat-card-header>
         <mat-card-header style="padding-bottom: 30px; display: grid; padding-left: 42px;">
-            <form [formGroup]="shelteredForm">
 
-                <!-- <mat-form-field class='shelteredImage'>
-                    <input hidden #fileInput  type="file"/>
-                    <button type="button" mat-raised-button (click)="fileInput.click()" style="height:35px;width:230px;background-color: rgb(107, 127, 223);color:white;">Imagem do acolhido</button>
-                    <mat-form-field style="width:100%;height:30px;margin: 0;">                        
-                        <input matInput formControlName="perfilImage">
-                    </mat-form-field>
-                </mat-form-field> -->
+            <mat-tab-group animationDuration="1000ms">
+                <mat-tab label="Informações Basicas">
+                    <form [formGroup]="shelteredForm">
 
-                <mat-form-field class='shelteredName'>
-                    <input matInput placeholder="Nome do acolhido" formControlName="name" required />
-                </mat-form-field>
+                        <!--1-->
+                        <mat-form-field class='shelteredName'>
+                            <input matInput placeholder="Nome do acolhido" formControlName="name" required />
+                        </mat-form-field>
+        
+                        <mat-form-field class='shelteredAge'>
+                            <input matInput placeholder="Idade" formControlName="age" type="number" />
+                        </mat-form-field>
 
-                <mat-form-field class='shelteredAge'>
-                    <input matInput placeholder="Idade" formControlName="age" type="number" />
-                </mat-form-field>
+                        <mat-form-field class='maritalStatus'>
+                            <mat-label>Estado Civil</mat-label>
+                            <mat-select formControlName="maritalStatus">
+                                <mat-option></mat-option>
+                                <mat-option value="Solteiro">Solteiro</mat-option>
+                                <mat-option value="Casado">Casado</mat-option>
+                                <mat-option value="Viuvo">Viúvo</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!--2-->
+                        <mat-form-field class='shelteredNationality'>
+                            <input matInput placeholder="Natural de" formControlName="nationality"/>
+                        </mat-form-field>
 
-                <mat-form-field class='registrationBirthDate'>
-                    <mat-label>Data de Nascimento</mat-label>
-                    <input formControlName="birthDate" matInput [matDatepicker]="date" />
-                    <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
-                    <mat-datepicker #date></mat-datepicker>
-                </mat-form-field>
+                        <mat-form-field class='registrationBirthDate'>
+                            <mat-label>Data de Nascimento</mat-label>
+                            <input formControlName="birthDate" matInput [matDatepicker]="date" />
+                            <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+                            <mat-datepicker #date></mat-datepicker>
+                        </mat-form-field>
+        
+                        <mat-form-field class='shelteredBloodTyping'>
+                            <mat-label>Tipo Sanguíneo</mat-label>
+                            <mat-select formControlName="bloodTyping">
+                                <mat-option></mat-option>
+                                <mat-option value="O-">O-</mat-option>
+                                <mat-option value="O+">O+</mat-option>
+                                <mat-option value="A+">A+</mat-option>
+                                <mat-option value="A-">A-</mat-option>
+                                <mat-option value="B+">B+</mat-option>
+                                <mat-option value="B-">B-</mat-option>
+                                <mat-option value="AB+">AB+</mat-option>
+                                <mat-option value="AB-">AB-</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+        
+                        <mat-form-field class='shelteredGender'>
+                            <mat-label>Sexo</mat-label>
+                            <mat-select formControlName="gender">
+                                <mat-option></mat-option>
+                                <mat-option value="M">Masculino</mat-option>
+                                <mat-option value="F">Faminino</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!--3-->
+                        <mat-form-field class='shelteredAddress'>
+                            <input matInput placeholder="Endereço" formControlName="address" type="text" />
+                        </mat-form-field>
 
-                <mat-form-field class='shelteredBloodTyping'>
-                    <mat-label>Tipo Sanguíneo</mat-label>
-                    <mat-select formControlName="bloodTyping">
-                        <mat-option></mat-option>
-                        <mat-option value="O-">O-</mat-option>
-                        <mat-option value="O+">O+</mat-option>
-                        <mat-option value="A+">A+</mat-option>
-                        <mat-option value="A-">A-</mat-option>
-                        <mat-option value="B+">B+</mat-option>
-                        <mat-option value="B-">B-</mat-option>
-                        <mat-option value="AB+">AB+</mat-option>
-                        <mat-option value="AB-">AB-</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <mat-form-field class='city'>
+                            <input matInput placeholder="Cidade" formControlName="city" type="text" />
+                        </mat-form-field>
 
-                <mat-form-field class='shelteredGender'>
-                    <mat-label>Sexo</mat-label>
-                    <mat-select formControlName="gender">
-                        <mat-option></mat-option>
-                        <mat-option value="M">Masculino</mat-option>
-                        <mat-option value="F">Faminino</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <mat-form-field class='neighborhood'>
+                            <input matInput placeholder="Bairro" formControlName="neighborhood" type="text" />
+                        </mat-form-field>
+        
+                        <!--4-->
+                        <mat-form-field class='shelteredPhone'>
+                            <input matInput placeholder="Telefone" formControlName="phone" />
+                        </mat-form-field>
 
-                <mat-form-field class='shelteredAddress'>
-                    <input matInput placeholder="Endereço" formControlName="address" type="text" />
-                </mat-form-field>
 
-                <mat-form-field class='shelteredPhone'>
-                    <input matInput placeholder="Telefone" formControlName="phone" />
-                </mat-form-field>
+                        <mat-form-field class='residesin'>
+                            <mat-label>Reside em</mat-label>
+                            <mat-select formControlName="gender">
+                                <mat-option value="Casa Própria">Casa Própria</mat-option>
+                                <mat-option value="Alugada">Alugada</mat-option>
+                                <mat-option value="Com familiares">Com familiares</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+        
+        
+                    </form> 
+                </mat-tab>
+                <mat-tab label="Informações Gerais">
+                    
+                </mat-tab>
+                <mat-tab label="Dados de Contato"></mat-tab>
+            </mat-tab-group>
+                       
 
-            </form>
         </mat-card-header>
         <mat-card-content>
             <div class="backButton">

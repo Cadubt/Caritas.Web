@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HeaderModule } from './Shared/header/header.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
 import { SidenavModule } from './Shared/sidenav/sidenav.module';
 import { FooterModule } from './Shared/footer/footer.module';
 import { DashboardModule } from './Pages/dashboard/dashboard.module';
@@ -45,6 +46,7 @@ import { FilterPipe } from './Shared/pipes/filter.pipe';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
+    MatTabsModule,
     HeaderModule,
     SidenavModule,
     FooterModule,

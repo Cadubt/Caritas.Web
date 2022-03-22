@@ -17,14 +17,16 @@ mat-form-field, mat-form-field-wrapper, mat-form-field-flex {
     max-height: fit-content;
   }
   
-
+  .mat-tab-group {
+    margin-left: -40px;
+  }
 
   form{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     max-height: fit-content;
-    margin-left: -36px;
+    // margin-left: -36px;
     // grid-gap: 5px;
   }
 
@@ -34,42 +36,65 @@ mat-form-field, mat-form-field-wrapper, mat-form-field-flex {
     grid-column: 1/5;
     grid-row: 4;
 }
-
+// 1
 .shelteredName {
-    grid-column: 1/4;
+    grid-column: 1/3;
     grid-row: 1;
 }
 
 .shelteredAge {
+    grid-column: 3/4;
+    grid-row: 1;
+}
+.maritalStatus{
     grid-column: 4/5;
     grid-row: 1;
 }
 
-.registrationBirthDate {
+
+// 2
+.shelteredNationality {
     grid-column: 1/2;
     grid-row: 2;
 }
 
-.shelteredGender{
-    grid-column: 3/4;
-    grid-row: 2;
-}
-
-.shelteredBloodTyping {
+.registrationBirthDate {
     grid-column: 2/3;
     grid-row: 2;
 }
 
+.shelteredGender{
+    grid-column: 4/5;
+    grid-row: 2;
+}
+
+.shelteredBloodTyping {
+    grid-column: 3/4;
+    grid-row: 2;
+}
+
+// 3
+
 .shelteredAddress {
-    grid-column: 1/4;
+    grid-column: 1/3;
     grid-row: 3;
 }
 
-.shelteredPhone {
+.neighborhood{
     grid-column: 4/5;
     grid-row: 3;
 }
 
+.city{
+    grid-column: 3/4;
+    grid-row: 3;
+}
+
+// 4
+.shelteredPhone {
+    grid-column: 1/2;
+    grid-row: 4;
+}
 
 .backButton{
     // grid-column: 4;

@@ -9,7 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { NewShelteredComponent } from './new-sheltered.component';
 
@@ -27,6 +27,7 @@ import { NewShelteredComponent } from './new-sheltered.component';
     MatButtonModule,
     MatDatepickerModule,
     MatIconModule,
+    MatTabsModule,
     MatSelectModule,
     FormsModule, 
     ReactiveFormsModule,
