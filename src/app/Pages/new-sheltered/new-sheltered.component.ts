@@ -47,7 +47,6 @@ export class NewShelteredComponent implements OnInit {
       statusId: 1,
       createdAt: [null],
       deletedAt: [null],
-
       nationality: [null],
       maritalStatus: [null],
       city: [null],
@@ -78,7 +77,11 @@ export class NewShelteredComponent implements OnInit {
     })
     //Tab 3
     this.contactForm = this.formBuilder.group({
-      name: [null]
+      name: [null],
+      kinship: [null],
+      phoneContact: [null],
+      addressContact: [null],
+      neighborhoodContact: [null]
     })
   }
 

@@ -180,12 +180,80 @@
                 <!--TAB 2-->
                 <mat-tab label="Informações Gerais">
                     <form [formGroup]="generalIndoForm">
+                        <!--1-->
                         <mat-form-field class='healthProblem'>
                             <input matInput placeholder="Tem problema de Saúde" formControlName="healthProblem" type="text" />
                         </mat-form-field>
+
                         <mat-form-field class='medicalInsurance'>
                             <input matInput placeholder="Tem convenio médico" formControlName="medicalInsurance" type="text" />
                         </mat-form-field>
+
+                        <!--2-->
+                        <mat-form-field class='hasMedicalTreatment'>
+                            <mat-label>Faz tratamento médico especializado</mat-label>
+                            <mat-select formControlName="hasMedicalTreatment">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='whichHospital'>
+                            <input matInput placeholder="Em qual hospital" formControlName="whichHospital" type="text" />
+                        </mat-form-field>
+
+                        <!--3-->
+                        <mat-form-field class='disability'>
+                            <input matInput placeholder="Possui deficiencia" formControlName="disability" type="text" />
+                        </mat-form-field>
+
+                        <mat-form-field class='howMoves'>
+                            <input matInput placeholder="Como se movimenta" formControlName="howMoves" type="text" />
+                        </mat-form-field>
+
+
+                        <!--4-->
+                        <mat-form-field class='smoker'>
+                            <mat-label>É fumante</mat-label>
+                            <mat-select formControlName="smoker">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='drinker'>
+                            <mat-label>Faz uso de bebida alcoólica</mat-label>
+                            <mat-select formControlName="drinker">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='feedsItself'>
+                            <mat-label>Se alimenta sozinho</mat-label>
+                            <mat-select formControlName="feedsItself">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='controlledMedicine'>
+                            <input matInput placeholder="Toma algum remédio controlado" formControlName="controlledMedicine" type="text" />
+                        </mat-form-field>
+
+                        <!--5-->
+                        <mat-form-field class='goOutAline'>
+                            <mat-label>Sai à rua sozinho</mat-label>
+                            <mat-select formControlName="goOutAline">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='anyOccurrence'>
+                            <input matInput placeholder="Sofreu algum acidente" formControlName="anyOccurrence" type="text" />
+                        </mat-form-field>
+
                     </form>
                         
                 </mat-tab>
@@ -195,6 +263,18 @@
                     <form [formGroup]="contactForm">
                         <mat-form-field class='name'>
                             <input matInput placeholder="Nome do Contato" formControlName="name" type="text" />
+                        </mat-form-field>
+                        <mat-form-field class='kinship'>
+                            <input matInput placeholder="Parentesco" formControlName="kinship" type="text" />
+                        </mat-form-field>
+                        <mat-form-field class='phoneContact'>
+                            <input matInput placeholder="Telefone" formControlName="phoneContact" type="text" />
+                        </mat-form-field>
+                        <mat-form-field class='addressContact'>
+                            <input matInput placeholder="Enderesso" formControlName="addressContact" type="text" />
+                        </mat-form-field>
+                        <mat-form-field class='neighborhoodContact'>
+                            <input matInput placeholder="Bairro" formControlName="neighborhoodContact" type="text" />
                         </mat-form-field>
                     </form>
                     <div class="backButton">
