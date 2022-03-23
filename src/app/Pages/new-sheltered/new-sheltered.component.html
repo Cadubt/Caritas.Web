@@ -46,9 +46,10 @@
         </mat-card-header>
         <mat-card-header style="padding-bottom: 30px; display: grid; padding-left: 42px;">
 
-            <mat-tab-group animationDuration="1000ms">
+            <mat-tab-group animationDuration="500ms">
+                <!--TAB 1-->
                 <mat-tab label="Informações Basicas">
-                    <form [formGroup]="shelteredForm">
+                    <form [formGroup]="basicForm">
 
                         <!--1-->
                         <mat-form-field class='shelteredName'>
@@ -121,7 +122,6 @@
                             <input matInput placeholder="Telefone" formControlName="phone" />
                         </mat-form-field>
 
-
                         <mat-form-field class='residesin'>
                             <mat-label>Reside em</mat-label>
                             <mat-select formControlName="gender">
@@ -130,27 +130,88 @@
                                 <mat-option value="Com familiares">Com familiares</mat-option>
                             </mat-select>
                         </mat-form-field>
+
+                        <!--5-->
+                        <mat-form-field class='hasIncome'>
+                            <mat-label>Recebe benefício</mat-label>
+                            <mat-select formControlName="hasIncome">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='incomeAmount'>
+                            <input matInput placeholder="Valor em R$" formControlName="incomeAmount" type="number" />
+                        </mat-form-field>
+
+                        <mat-form-field class='sourceOfIncome'>
+                            <input matInput placeholder="Outros Rendimentos em R$" formControlName="sourceOfIncome" type="number" />
+                        </mat-form-field>
+
+                        <!--6-->
+                        <mat-form-field class='acceptsToBeWelcomed'>
+                            <mat-label>Aceita ser acolhido</mat-label>
+                            <mat-select formControlName="acceptsToBeWelcomed">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='beenAnotherInstitution'>
+                            <mat-label>Já esteve em outra instituição</mat-label>
+                            <mat-select formControlName="beenAnotherInstitution">
+                                <mat-option value="1">Sim</mat-option>
+                                <mat-option value="0">Não</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class='anotherInstitutionName'>
+                            <input matInput placeholder="Nome da outra Instituição em que esteve" formControlName="anotherInstitutionName" type="text" />
+                        </mat-form-field>
+
+                        <mat-form-field class='howFindOutShelter'>
+                            <input matInput placeholder="Como conheceu o abrigo" formControlName="howFindOutShelter" type="text" maxlength="50" />
+                        </mat-form-field>
         
         
                     </form> 
                 </mat-tab>
+
+                <!--TAB 2-->
                 <mat-tab label="Informações Gerais">
-                    
+                    <form [formGroup]="generalIndoForm">
+                        <mat-form-field class='healthProblem'>
+                            <input matInput placeholder="Tem problema de Saúde" formControlName="healthProblem" type="text" />
+                        </mat-form-field>
+                        <mat-form-field class='medicalInsurance'>
+                            <input matInput placeholder="Tem convenio médico" formControlName="medicalInsurance" type="text" />
+                        </mat-form-field>
+                    </form>
+                        
                 </mat-tab>
-                <mat-tab label="Dados de Contato"></mat-tab>
+
+                <!--TAB 3-->
+                <mat-tab label="Dados de Contato">
+                    <form [formGroup]="contactForm">
+                        <mat-form-field class='name'>
+                            <input matInput placeholder="Nome do Contato" formControlName="name" type="text" />
+                        </mat-form-field>
+                    </form>
+                    <div class="backButton">
+                        <button mat-raised-button color="primary" (click)="onSubmit()">
+                            <mat-icon _ngcontent-rex-c82="" role="img"
+                                class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">elderly
+                            </mat-icon>
+                            Cadastrar Acolhido
+                        </button>
+                    </div>
+                </mat-tab>
             </mat-tab-group>
                        
 
         </mat-card-header>
         <mat-card-content>
-            <div class="backButton">
-                <button mat-raised-button color="primary" (click)="onSubmit()">
-                    <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">elderly
-                    </mat-icon>
-                    Cadastrar Acolhido
-                </button>
-            </div>
+            
         </mat-card-content>
     </mat-card>
 </div>

@@ -12,6 +12,9 @@ import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 export class NewShelteredComponent implements OnInit {
 
   shelteredForm!: FormGroup;
+  basicForm!: FormGroup;
+  generalIndoForm!: FormGroup;
+  contactForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -20,7 +23,7 @@ export class NewShelteredComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.createForm();
+    this.createForms();
 
   }
 
@@ -28,8 +31,9 @@ export class NewShelteredComponent implements OnInit {
     this.router.navigate([`/${pageName}`]);
   }
 
-  createForm() {
-    this.shelteredForm = this.formBuilder.group({
+  createForms() {
+    //Tab 1
+    this.basicForm = this.formBuilder.group({
       name: [null],
       age: [null],
       gender: [null],
@@ -48,13 +52,39 @@ export class NewShelteredComponent implements OnInit {
       maritalStatus: [null],
       city: [null],
       neighborhood: [null],
-      residesin: [null]
+      residesin: [null],
+      hasIncome: [null],
+      incomeAmount: [null],
+      acceptsToBeWelcomed:[null],
+      sourceOfIncome:[null],
+      beenAnotherInstitution:[null],
+      anotherInstitutionName:[null],
+      howFindOutShelter:[null]
+    })
+    //Tab 2
+    this.generalIndoForm = this.formBuilder.group({
+      healthProblem: [null],
+      medicalInsurance: [null],
+      hasMedicalTreatment: [null],
+      whichHospital: [null],
+      disability: [null],
+      howMoves: [null],
+      smoker: [null],
+      drinker: [null],
+      feedsItself: [null],
+      controlledMedicine: [null],
+      goOutAline: [null],
+      anyOccurrence: [null]
+    })
+    //Tab 3
+    this.contactForm = this.formBuilder.group({
+      name: [null]
     })
   }
 
   onSubmit() {
     
-    const formData = this.shelteredForm.getRawValue();
+    const formData = this.basicForm.getRawValue();
     formData.entryDate = formData.birthDate;
     formData.perfilImage = formData.name.replace(/\s/g, '');
     console.log(formData)
