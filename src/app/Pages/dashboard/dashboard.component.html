@@ -1,21 +1,21 @@
 <div class="container">
 
-    <mat-card class="card" style="height: 100px;">
+    <mat-card class="card" style="height: 80px;">
       <mat-card-header>
         <mat-card-title>Acolhidos</mat-card-title>
       </mat-card-header>
-      <mat-card-content>
-        
+      <mat-card-content style="margin:5px">
+        Dashboard de exibição de acolhidos
       </mat-card-content>
     </mat-card>
   
     <div class="stick">
-      <div class="title">
+      <!-- <div class="title">
         <h2 class="titleH2">Campo de Busca</h2>
       </div>
       <mat-form-field class="filterInput">
         <input matInput (keyup)="applyFilter($event)" placeholder="Buscar Acolhido" #input>
-      </mat-form-field>
+      </mat-form-field> -->
       <div class="cards" style="flex-flow: inherit; cursor: pointer;">
   
         <mat-card class="shelteredCard" *ngFor="let sheltered of shelteredModel">
@@ -38,7 +38,7 @@
   
               <div>
                 <p class="title">Responsável</p>
-                <p class="shelteredResponsible">Fulano da Silva Sauro</p>
+                <p class="shelteredResponsible">{{sheltered.responsibleName}}</p>
               </div>
               <div>
                 <p class="title">Telefone</p>

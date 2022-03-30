@@ -14,7 +14,7 @@ export class NewShelteredComponent implements OnInit {
   shelteredForm!: FormGroup;
   basicForm!: FormGroup;
   generalInfoForm!: FormGroup;
-  contactForm!: FormGroup;
+  responsibleForm!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -62,38 +62,26 @@ export class NewShelteredComponent implements OnInit {
     })
     //Tab 2
     this.generalInfoForm = this.formBuilder.group({
-      // healthProblem: [null],
-      // medicalInsurance: [null],
-      // hasMedicalTreatment: [null],
-      // whichHospital: [null],
-      // disability: [null],
-      // howMoves: [null],
-      // smoker: [null],
-      // drinker: [null],
-      // feedsItself: [null],
-      // controlledMedicine: [null],
-      // goOutAline: [null],
-      // anyOccurrence: [null]
       healthProblem: [null],
-      medicalInsurance: "Amil",
-      hasMedicalTreatment: "Tratamento das Amigdalas",
-      whichHospital: "Hospital das amigdalas de São Paulo",
+      medicalInsurance: [null],
+      hasMedicalTreatment: [null],
+      whichHospital: [null],
       disability: [null],
-      howMoves: "Sozinho mas com dificuldade",
-      smoker: 1,
-      drinker: 1,
-      feedsItself: 1,
-      controlledMedicine: "Politeno semi perpetuo",
-      goOutAline: 1,
-      anyOccurrence: "Caiu de cabeça do 23 andar ha dois dias",
+      howMoves: [null],
+      smoker: [null],
+      drinker: [null],
+      feedsItself: [null],
+      controlledMedicine: [null],
+      goOutAline: [null],
+      anyOccurrence: [null]      
     })
     //Tab 3
-    this.contactForm = this.formBuilder.group({
-      nameContact: [null],
-      kinship: [null],
-      phoneContact: [null],
-      addressContact: [null],
-      neighborhoodContact: [null]
+    this.responsibleForm = this.formBuilder.group({
+      responsibleName: [null],
+      responsibleKinship: [null],
+      responsiblePhone: [null],
+      responsibleAddress: [null],
+      responsibleNeighborhood: [null]
     })
   }
 
@@ -103,88 +91,108 @@ export class NewShelteredComponent implements OnInit {
 
 
     this.shelteredForm = this.formBuilder.group({
+
       //#region  Values from Form
-      // name: this.basicForm.get('name')!.value,
-      // age: this.basicForm.get('age')!.value,
-      // gender: this.basicForm.get('gender')!.value,
-      // birthDate: this.basicForm.get('birthDate')!.value,
-      // phone: this.basicForm.get('phone')!.value,
-      // address: this.basicForm.get('address')!.value,
-      // bloodTyping: this.basicForm.get('bloodTyping')!.value,
-      // entryDate: this.basicForm.get('entryDate')!.value,
-      // perfilImage: this.basicForm.get('perfilImage')!.value,
-      // deceaseAt: this.basicForm.get('deceaseAt')!.value,
-      // statusId: 1,
-      // createdAt: this.basicForm.get('createdAt')!.value,
-      // deletedAt: this.basicForm.get('deletedAt')!.value,
-      // nationality: this.basicForm.get('nationality')!.value,
-      // maritalStatus: this.basicForm.get('maritalStatus')!.value,
-      // city: this.basicForm.get('city')!.value,
-      // neighborhood: this.basicForm.get('neighborhood')!.value,
-      // residesin: this.basicForm.get('residesin')!.value,
-      // hasIncome: this.basicForm.get('hasIncome')!.value,
-      // incomeAmount: this.basicForm.get('incomeAmount')!.value,
-      // acceptsToBeWelcomed: this.basicForm.get('acceptsToBeWelcomed')!.value,
-      // sourceOfIncome: this.basicForm.get('sourceOfIncome')!.value,
-      // beenAnotherInstitution: this.basicForm.get('beenAnotherInstitution')!.value,
-      // anotherInstitutionName: this.basicForm.get('anotherInstitutionName')!.value,
-      // howFindOutShelter: this.basicForm.get('howFindOutShelter')!.value,
-
-      // healthProblem: this.generalInfoForm.get('healthProblem')!.value,
-      // medicalInsurance: this.generalInfoForm.get('medicalInsurance')!.value,
-      // hasMedicalTreatment: this.generalInfoForm.get('hasMedicalTreatment')!.value,
-      // whichHospital: this.generalInfoForm.get('whichHospital')!.value,
-      // disability: this.generalInfoForm.get('disability')!.value,
-      // howMoves: this.generalInfoForm.get('howMoves')!.value,
-      // smoker: this.generalInfoForm.get('smoker')!.value,
-      // drinker: this.generalInfoForm.get('drinker')!.value,
-      // feedsItself: this.generalInfoForm.get('feedsItself')!.value,
-      // controlledMedicine: this.generalInfoForm.get('controlledMedicine')!.value,
-      // goOutAline: this.generalInfoForm.get('goOutAline')!.value,
-      // anyOccurrence: this.generalInfoForm.get('anyOccurrence')!.value,
-
-      // nameContact: this.contactForm.get('nameContact')!.value,
-      // kinship: this.contactForm.get('kinship')!.value,
-      // phoneContact: this.contactForm.get('phoneContact')!.value,
-      // addressContact: this.contactForm.get('addressContact')!.value,
-      // neighborhoodContact: this.contactForm.get('neighborhoodContact')!.value
+      name: this.basicForm.get('name')!.value,
+      age: this.basicForm.get('age')!.value,
+      birthDate: this.basicForm.get('birthDate')!.value,
+      gender: this.basicForm.get('gender')!.value,      
+      phone: this.basicForm.get('phone')!.value,
+      address: this.basicForm.get('address')!.value,
+      bloodTyping: this.basicForm.get('bloodTyping')!.value,
+      nationality: this.basicForm.get('nationality')!.value,
+      maritalStatus: this.basicForm.get('maritalStatus')!.value,
+      neighborhood: this.basicForm.get('neighborhood')!.value,
+      city: this.basicForm.get('city')!.value,
+      hasIncome: this.basicForm.get('hasIncome')!.value,
+      sourceOfIncome: this.basicForm.get('sourceOfIncome')!.value,
+      residesin: this.basicForm.get('residesin')!.value,
+      acceptsToBeWelcomed: this.basicForm.get('acceptsToBeWelcomed')!.value,
+      beenAnotherInstitution: this.basicForm.get('beenAnotherInstitution')!.value,
+      anotherInstitutionName: this.basicForm.get('anotherInstitutionName')!.value,
+      howFindOutShelter: this.basicForm.get('howFindOutShelter')!.value,
+      entryDate: [null],
+      perfilImage: this.basicForm.get('perfilImage')!.value,
+      deceaseAt: this.basicForm.get('deceaseAt')!.value,
+      statusId: 1,
+      createdAt: this.basicForm.get('createdAt')!.value,
+      deletedAt: this.basicForm.get('deletedAt')!.value,
+      approvalStatus: [null],
+      incomeAmount: this.basicForm.get('incomeAmount')!.value,
+      
+      //Responsible Info
+      responsibleName: this.responsibleForm.get('responsibleName')!.value,
+      responsibleKinship: this.responsibleForm.get('responsibleKinship')!.value,
+      responsiblePhone: this.responsibleForm.get('responsiblePhone')!.value,
+      responsibleAddress: this.responsibleForm.get('responsibleAddress')!.value,
+      responsibleNeighborhood: this.responsibleForm.get('responsibleNeighborhood')!.value,
+      
+      //General Info
+      healthProblem: this.generalInfoForm.get('healthProblem')!.value,
+      medicalInsurance: this.generalInfoForm.get('medicalInsurance')!.value,
+      hasMedicalTreatment: this.generalInfoForm.get('hasMedicalTreatment')!.value,
+      whichHospital: this.generalInfoForm.get('whichHospital')!.value,
+      disability: this.generalInfoForm.get('disability')!.value,
+      howMoves: this.generalInfoForm.get('howMoves')!.value,
+      smoker: this.generalInfoForm.get('smoker')!.value,
+      drinker: this.generalInfoForm.get('drinker')!.value,
+      feedsItself: this.generalInfoForm.get('feedsItself')!.value,
+      controlledMedicine: this.generalInfoForm.get('controlledMedicine')!.value,
+      goOutAline: this.generalInfoForm.get('goOutAline')!.value,
+      anyOccurrence: this.generalInfoForm.get('anyOccurrence')!.value
       //#endregion
 
 
       //#region  Values For testing
-      name: "Carlos da Silva",
-      age: 80,
-      gender: "m",
-      birthDate: "1944-07-13 03:00:00.0000000",
-      phone: "11985858558",
-      address: "Rua Tal",
-      bloodTyping: "0-",
-      entryDate: "2022-03-24 03:00:00.0000000",
-      perfilImage: [null],
-      deceaseAt: [null],
-      statusId: 1,
-      createdAt: "2022-03-24 03:00:00.0000000",
-      deletedAt: [null],
-      nationality: "Brasil",
-      maritalStatus: "Solteiro",
-      city: "São Paulo",
-      neighborhood: "Penha",
-      residesin: "Alugada",
-      hasIncome: 1,
-      incomeAmount: 3000.00,
-      acceptsToBeWelcomed: 1,
-      sourceOfIncome: "Aposentadoria",
-      beenAnotherInstitution: 1,
-      anotherInstitutionName: "Abrigo la la la",
-      howFindOutShelter: "Conhece desde jovem",
+      
+      // name: "Maria de Lurdes",
+      // age: 75,
+      // birthDate: "1944-07-13 03:00:00.0000000",
+      // gender: "f",
+      // phone: "11985858558",
+      // address: "Rua das Provincias",
+      // bloodTyping: "O+",
+      // nationality: "Brasileiro",
+      // maritalStatus: "Viuva",
+      // neighborhood: "Penha",
+      // city: "São Paulo",
+      // hasIncome: 1,
+      // sourceOfIncome: "Aposentadoria",
+      // residesin: "Alugada",
+      // acceptsToBeWelcomed: 1,
+      // beenAnotherInstitution: 1,
+      // anotherInstitutionName: "Mansão do Caminho",
+      // howFindOutShelter: "",
+      // entryDate: [null],
+      // perfilImage: [null],
+      // deceaseAt: [null],
+      // statusId: 1,
+      // createdAt: "2022-03-27 03:00:00.0000000",
+      // deletedAt: [null],
+      // approvalStatus: "Em Análise",
+      // incomeAmount: 2500.50,
+      
+      // //Responsible Info
+      // responsibleName: "João da Silva Filho",
+      // responsibleKinship: "Filho",
+      // responsiblePhone: "11985589789",
+      // responsibleAddress: "Rua das Provincias",
+      // responsibleNeighborhood: "Penha",
+      
+      // //General Info
+      // healthProblem: "Dores nas costas",
+      // medicalInsurance: "Amil",
+      // hasMedicalTreatment: 1,
+      // whichHospital: "Hospital Santa Clara",
+      // disability: "Cadeirante",
+      // howMoves: "Com Cadeira de rodas",
+      // smoker: 1,
+      // drinker: 0,
+      // feedsItself: 1,
+      // controlledMedicine: "Politenuo Semi perpétuo",
+      // goOutAline: 1,
+      // anyOccurrence: [null]
 
-      generalInfoForm: this.generalInfoForm,
-
-      nameContact: "João manoel da Silva",
-      kinship: "Filho",
-      phoneContact: "65456545",
-      addressContact: "Rua tal",
-      neighborhoodContact: "Penha"
       //#endregion
 
     })
