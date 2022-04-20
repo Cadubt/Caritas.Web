@@ -25,7 +25,7 @@ export class ShelteredService {
     if (sheltStatus !== undefined)    
       var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=${sheltStatus}&approvalStatus=${approvalStatus}`;
     else
-      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1&approvalStatus=aprovado`;
+      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1&approvalStatus=null`;
     return this.http.get(urlString, {headers:headerToken})
   }
 
