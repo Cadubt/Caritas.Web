@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
    * Method to get a List of Sheltered Items
    */
   getShelteredList() {
-    this.shelteredService.getShelteredList(1, "APROVADO").subscribe(
+    this.shelteredService.getShelteredList(1,"APROVADO").subscribe(
       (res: any) => {
         this.shelteredModel = res.data;
         console.log(res.data);
