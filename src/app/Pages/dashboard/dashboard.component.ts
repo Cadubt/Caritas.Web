@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
 import { AuthService } from 'src/app/Core/auth.service';
@@ -8,6 +8,8 @@ import { AuthService } from 'src/app/Core/auth.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
+
 export class DashboardComponent implements OnInit {
   shelteredModel: any;
   erro: any;
@@ -17,13 +19,13 @@ export class DashboardComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private shelteredService: ShelteredService,
-    private router: Router,    
+    private router: Router,
   ) { }
-  
+
   
 
   ngOnInit(): void {
-    this.getShelteredList();    
+    this.getShelteredList();
     this.authService.showMenu();
   }
 
@@ -33,8 +35,8 @@ export class DashboardComponent implements OnInit {
   }
 
   onNavigateTo(pageName: any, SheltId?: any) {
-    if (SheltId !== null){
-      const SheltNavigationInfo: NavigationExtras = {state:{id:SheltId}}
+    if (SheltId !== null) {
+      const SheltNavigationInfo: NavigationExtras = { state: { id: SheltId } }
       this.router.navigate([`/${pageName}`, SheltNavigationInfo.state]);
     }
     else
@@ -43,15 +45,15 @@ export class DashboardComponent implements OnInit {
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    var filterargs = filterValue.trim().toLowerCase();
+    this.shelteredModel.filter = filterValue.trim().toLowerCase();
     // console.log(filterargs);
-  }  
+  }
 
   /**
    * Method to get a List of Sheltered Items
    */
   getShelteredList() {
-    this.shelteredService.getShelteredList().subscribe(
+    this.shelteredService.getShelteredList(1, "APROVADO").subscribe(
       (res: any) => {
         this.shelteredModel = res.data;
         console.log(res.data);
@@ -62,6 +64,6 @@ export class DashboardComponent implements OnInit {
     );
   }
 
-  
+
 
 }

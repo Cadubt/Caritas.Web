@@ -2,32 +2,65 @@
 
   <mat-card class="card" style="height: auto; width:1450px; margin: 0px;flex-direction: unset;">
     <div style="float:left; width:355px; min-height:500px; background-color: {{backgroundColor}}">
-      <img class="photo" src='http://cadubt.com.br/caritas-acolhidos/{{shelteredModel.perfilImage}}.png' style="width:350px;float:left; margin-top: 2px; margin-left: 2px;min-height: 200px;">
+      <img class="photo" src='http://gestaocaritas.com.br/caritas-acolhidos/{{shelteredModel.perfilImage}}.jpg'
+        style="width:350px;float:left; margin-top: 2px; margin-left: 2px;min-height: 200px;">
       <div style="height: 250px; float:left; min-height:500px;">
-        <div style="margin:15px;">          
-          <div style="height:30px; width: 100%; font-size:20px; float:left;font-weight: 500;">{{shelteredModel.name}}</div>
-          <div style="height:35px; width: 100%; font-size:16px; float:left;font-weight: 500;">{{shelteredModel.age}} Anos</div>
+        <div style="margin:15px;">
+          <div style="height:30px; width: 100%; font-size:20px; float:left;font-weight: 500;">{{shelteredModel.name}}
+          </div>
+          <div style="height:35px; width: 100%; font-size:16px; float:left;font-weight: 500;">{{shelteredModel.age}}
+            Anos</div>
           <div style="height:20px; width: 100%; font-size:14px; float:left;">Endereço: {{shelteredModel.address}}</div>
-          <div style="height:20px; width: 100%; font-size:14px; float:left;">Tel: {{shelteredModel.phone}}</div>         
+          <div style="height:20px; width: 100%; font-size:14px; float:left;">Tel: {{shelteredModel.phone}}</div>
           <div style="height:20px; width: 100%; font-size:14px; float:left;">Nascido em {{birthDate}}</div>
-          <div style="height:20px; width: 100%; font-size:14px; float:left;">Sangue tipo {{shelteredModel.bloodTyping}}</div>
-          <div style="height:20px; width: 100%; font-size:14px; float:left;">Cadastrado em {{registeredDate}}</div>
-          <div style="height:20px; width: 100%; font-size:14px; float:left;">Acolhido em {{entryDate}}</div>
+          <div style="height:20px; width: 100%; font-size:14px; float:left;">Sangue tipo {{shelteredModel.bloodTyping}}
+          </div>
+          <!-- <div style="height:20px; width: 100%; font-size:14px; float:left;">Cadastrado em {{registeredDate}}</div> -->
+          <!-- <div style="height:20px; width: 100%; font-size:14px; float:left;">Acolhido em {{entryDate}}</div> -->
           <section *ngIf="shelteredModel.deceaseAt">
-            <div style="height:20px;width:100%; font-size:14px; float:left; color:brown; font-weight: 500;">Falecido em: {{deciesedDate}}</div>
+            <div style="height:20px;width:100%; font-size:14px; float:left; color:brown; font-weight: 500;">Falecido em:
+              {{deciesedDate}}</div>
           </section>
           <section *ngIf="shelteredModel.deletedAt">
-            <div style="height:20px;width:100%; font-size:14px; float:left;">EXCLUÍDO DO SISTEMA EM: {{shelteredModel.deletedAt}}</div>
-            
+            <div style="height:20px;width:100%; font-size:14px; float:left;">EXCLUÍDO DO SISTEMA EM:
+              {{shelteredModel.deletedAt}}</div>
+
           </section>
         </div>
       </div>
     </div>
     <div style="width:1150px; height:1000px; float: left;">
 
-      <div style="width:1000px; height:50px; float: left; background-color: {{backgroundColor}}">
+      <div style="width:1000px; height:52px; float: left; background-color: {{backgroundColor}}">
+        <div style="width:991px; height:950px;padding-left: 3px; float: left; border:solid 3px {{backgroundColor}};">
+        <mat-tab-group animationDuration="500ms">
+          
+            <!--TAB 1-->
+            <mat-tab label="Informações Basicas">
+              Informações Basicas
+            </mat-tab>
+            <!--TAB 2-->
+            <mat-tab label="Enfermagem">
+              Enfermagem
+            </mat-tab>
+            <!--TAB 3-->
+            <mat-tab label="Prontuario">
+              Prontuario
+            </mat-tab>
+            <!--TAB 4-->
+            <mat-tab label="Emergencia">
+              Emergencia
+            </mat-tab>
+            <!--TAB 5-->
+            <mat-tab label="Outros">
+              Outros
+            </mat-tab>
+          
+        </mat-tab-group>
+      </div>
 
-        <button mat-raised-button color="primary" class="sendButton">
+
+        <!-- <button mat-raised-button color="primary" class="sendButton">
           <mat-icon _ngcontent-rex-c82="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
             aria-hidden="true">
             supervised_user_circle</mat-icon>
@@ -60,16 +93,14 @@
             aria-hidden="true">
             supervised_user_circle</mat-icon>
           &nbsp; Opção5
-        </button>
+        </button> -->
 
       </div>
 
-      <div style="width:991px; height:950px;padding-left: 3px; float: left; border:solid 3px {{backgroundColor}};">
-        Area com os principais eventos relacionados ao acolhido
-      </div>
+
     </div>
-    
-    
+
+
 
 
   </mat-card>

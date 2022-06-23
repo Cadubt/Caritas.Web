@@ -4,6 +4,11 @@
             <mat-card-title><b>ÁREA ADMINISTRATIVA - Cáritas</b></mat-card-title>
          </mat-card-header>
          <mat-card-content>
+            <!-- <app-admin-buttons>
+
+            </app-admin-buttons> -->
+
+
              <div class="send">
                  <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/admin-configuration')">
                      <mat-icon _ngcontent-rex-c82="" role="img"
@@ -25,6 +30,12 @@
                       aria-hidden="true">
                       elderly</mat-icon>
                     &nbsp; Aprovação de acolhido cadastrado
+                  </button>
+                  <button mat-raised-button color="primary" (click)="onNavigateTo('/reports')" class="sendButton" disabled>
+                    <mat-icon _ngcontent-rex-c82="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
+                      aria-hidden="true">
+                      insert_chart_outlined</mat-icon>
+                    &nbsp; Relatórios
                   </button>
              </div>
          </mat-card-content>

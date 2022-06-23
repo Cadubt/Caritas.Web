@@ -31,6 +31,7 @@ import { AuthorizeSheltRegisterModule } from './Pages/authorize-shelt-register/a
 import { LoginModule } from './Pages/login/login.module';
 import { ShelteredModule } from './Pages/sheltered/sheltered.module';
 import { FilterPipe } from './Shared/pipes/filter.pipe';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ import { FilterPipe } from './Shared/pipes/filter.pipe';
     ShelteredModule
     
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],//Para exibir as datas dos datepickers em pt-BR
   bootstrap: [AppComponent]
 })
 export class AppModule { }

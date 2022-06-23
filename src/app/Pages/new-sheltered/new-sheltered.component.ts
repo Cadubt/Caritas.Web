@@ -87,9 +87,6 @@ export class NewShelteredComponent implements OnInit {
 
   onSubmit() {
 
-
-
-
     this.shelteredForm = this.formBuilder.group({
 
       //#region  Values from Form
@@ -117,7 +114,7 @@ export class NewShelteredComponent implements OnInit {
       statusId: 1,
       createdAt: this.basicForm.get('createdAt')!.value,
       deletedAt: this.basicForm.get('deletedAt')!.value,
-      approvalStatus: [null],
+      approvalStatus: 'XABLAU',
       incomeAmount: this.basicForm.get('incomeAmount')!.value,
       
       //Responsible Info
@@ -202,7 +199,14 @@ export class NewShelteredComponent implements OnInit {
     formData.entryDate = formData.birthDate;
     formData.perfilImage = formData.name.replace(/\s/g, '');
     console.log(formData)
-    this.shelteredService.createSheltered(formData).subscribe(res => { });
+    this.shelteredService.createSheltered(formData).subscribe(
+      (res: any) => {
+        alert("Cadastro de acolhido, realizado com sucesso");
+      },
+      (error: any) => {
+        alert("Erro ao cadastrar acolhido, entre em contato com o administrador do sistema - detalhes do erro: Verifique os campos dos formulários");
+      }
+    );
     // window.location.href = "dashboard";
   }
 

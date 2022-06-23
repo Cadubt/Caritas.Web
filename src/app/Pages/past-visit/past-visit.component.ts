@@ -101,6 +101,13 @@ export class PastVisitComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  applyDateFilter(event: Event) {
+    alert(event);
+    // const filterValue = (event.target as HTMLInputElement).value; //Da pau
+    
+    // this.dataSource.filter = event;
+  }
+
   OnDateChange(event:Event){
     const filterValue = (event.target as HTMLInputElement).value;
     alert("filter Value" + filterValue);

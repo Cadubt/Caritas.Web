@@ -15,5 +15,12 @@ a{
   
   .mat-list-item-content{
     color: white;
+    position:fixed; 
+    height:500px;
+    border:solid 2px red;
+  }
+
+  .mat-list-base{
+    position: fixed;
   }
   

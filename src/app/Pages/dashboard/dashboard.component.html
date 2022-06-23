@@ -1,57 +1,62 @@
 <div class="container">
 
-    <mat-card class="card" style="height: 80px;">
-      <mat-card-header>
-        <mat-card-title>Acolhidos</mat-card-title>
-      </mat-card-header>
-      <mat-card-content style="margin:5px">
-        Dashboard de exibição de acolhidos
-      </mat-card-content>
-    </mat-card>
-  
-    <div class="stick">
-      <!-- <div class="title">
+  <mat-card class="card" style="height: 80px;">
+    <mat-card-header>
+      <mat-card-title>Acolhidos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="margin:5px">
+      Dashboard de exibição de acolhidos
+    </mat-card-content>
+  </mat-card>
+
+  <mat-form-field class="filterInput">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtrar Acolhido" #input>
+  </mat-form-field>
+
+  <div class="stick">
+    <!-- <div class="title">
         <h2 class="titleH2">Campo de Busca</h2>
       </div>
       <mat-form-field class="filterInput">
         <input matInput (keyup)="applyFilter($event)" placeholder="Buscar Acolhido" #input>
       </mat-form-field> -->
-      <div class="cards" style="flex-flow: inherit; cursor: pointer;">
-  
-        <mat-card class="shelteredCard" *ngFor="let sheltered of shelteredModel">
-  
-          <img mat-card-image class="photo" src='http://cadubt.com.br/caritas-acolhidos/{{sheltered.perfilImage}}.png' alt="Imagem do Acolhido">
-  
-  
-          <mat-card-content>
-            <h2 class="shelteredName">{{sheltered.name}}</h2>
-            <h3 class="shelteredAge">{{sheltered.age}} Anos</h3>
-            <div class="infoGrid">
-              <div>
-                <p class="title">Setor</p>
-                <p>Norte</p>
-              </div>
-              <div>
-                <p class="title">Quarto</p>
-                <p>508</p>
-              </div>
-  
-              <div>
-                <p class="title">Responsável</p>
-                <p class="shelteredResponsible">{{sheltered.responsibleName}}</p>
-              </div>
-              <div>
-                <p class="title">Telefone</p>
-                <p>{{sheltered.phone}}</p>
-              </div>
-  
+    <div class="cards" style="flex-flow: inherit; cursor: pointer;">
+
+      <mat-card class="shelteredCard" *ngFor="let sheltered of shelteredModel">
+
+        <img mat-card-image class="photo"
+          src='http://gestaocaritas.com.br/caritas-acolhidos/{{sheltered.perfilImage}}.jpg' alt="Imagem do Acolhido">
+
+
+        <mat-card-content>
+          <h2 class="shelteredName">{{sheltered.name}}</h2>
+          <h3 class="shelteredAge">{{sheltered.age}} Anos</h3>
+          <div class="infoGrid">
+            <div>
+              <p class="title">Setor</p>
+              <p>---</p>
             </div>
-            <mat-card-actions>
-              <button (click)="onNavigateTo('/sheltered',sheltered.id )" mat-button>Ver mais</button>
-            </mat-card-actions>
-          </mat-card-content>
-        </mat-card>
-      </div>
+            <div>
+              <p class="title">Quarto</p>
+              <p>---</p>
+            </div>
+
+            <div>
+              <p class="title">Responsável</p>
+              <p class="shelteredResponsible">{{sheltered.responsibleName}}</p>
+            </div>
+            <div>
+              <p class="title">Telefone</p>
+              <p>{{sheltered.phone}}</p>
+            </div>
+
+          </div>
+          <mat-card-actions>
+            <button (click)="onNavigateTo('/sheltered',sheltered.id )" mat-button>Ver mais</button>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
     </div>
-  
   </div>
+
+</div>
