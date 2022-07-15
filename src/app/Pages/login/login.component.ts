@@ -74,6 +74,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       sessionStorage.setItem('userRole',res.user.role)
       sessionStorage.setItem('userEmail',res.user.email)
       sessionStorage.setItem('userDeleted',res.user.deletedAt)
+      localStorage.setItem('nome','Carlos Eduardo Bifulco Torres')
       this.onNavigateTo(["dashboard"]);
 
     }, err => {
