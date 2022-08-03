@@ -17,15 +17,15 @@ export class ShelteredService {
    * Method to get a List of Sheltered Items
    * @returns 
    */
-  getShelteredList(sheltStatus?: bigint) {
-    console.log(sheltStatus)
+  getShelteredList(sheltStatus?: number, approvalStatus?: string) {
+    console.log(sheltStatus + " " + approvalStatus)
     
     const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
 
     if (sheltStatus !== undefined)    
-      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=${sheltStatus}`;
+      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=${sheltStatus}&approvalStatus=${approvalStatus}`;
     else
-      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1`;
+      var urlString = `${API_URL}Sheltered/ListSheltereds?statusId=1&approvalStatus=APROVADO`;
     return this.http.get(urlString, {headers:headerToken})
   }
 

@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userName = sessionStorage.getItem("userName");
+  userEntireName = sessionStorage.getItem("userName");
+  userName = this.userEntireName!.split(' ')[0]
   @Output() public sidenavToggle = new EventEmitter();
 
 

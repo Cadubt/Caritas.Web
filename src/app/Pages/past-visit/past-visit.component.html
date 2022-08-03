@@ -26,19 +26,64 @@
             <mat-card-title>Visitante Cadastrados</mat-card-title>
             <mat-card-subtitle>Lista de Visitantes cadastrados:</mat-card-subtitle>
         </mat-card-header>
-        <mat-list>
-            <h3 mat-subheader>Registro de Visitas</h3>
-            <mat-list-item *ngFor="let visitor of visitorModel">
-                <mat-icon mat-list-icon>calendar_today</mat-icon>
-                <h4 mat-line> Visita para o(a) : <b>{{ visitor.shelteredId }}</b>, no dia: <b>{{ visitor.visitDate |
-                        date:'dd/MM/yyyy'}} ás {{visitor.visitDate | date:'hh:mm'}}hrs</b> </h4>
-                <p mat-line class="demo-1">Nome do Visitante: <b>{{visitor.name}}</b></p>
-                <p mat-line class="demo-2">Telefone: <b>{{visitor.phone}}</b></p>
-                <p mat-line class="demo-2">rg: <b>{{visitor.rg}}</b></p>
-                <p mat-line class="demo-2">Endereço: <b>{{visitor.adress}}</b></p>
-                <p mat-line class="demo-2">Grau de Parentesco: <b>{{visitor.kinshipId}}</b></p>
-            </mat-list-item>
-        </mat-list>
+        <mat-card-content>
+            <br />
+
+
+
+            <mat-card-subtitle>Ola {{userName}}</mat-card-subtitle>
+            <mat-card-subtitle>Esta tela exibe todos Visitas Cadastradas para que você possa consultar
+            </mat-card-subtitle>
+            <br />
+
+            <mat-card-subtitle>Filtro de Pesquisa</mat-card-subtitle>
+
+            <mat-form-field class="filterInput">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Buscar Visitante" #input>
+            </mat-form-field>
+            <mat-form-field class="filterInput">
+                <input matInput [matDatepicker]="picker" type='text' (ngModelChange)="applyDateFilter($event)" placeholder="Buscar por Data" [value]="date.value" [formControl]="serializedDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef="adress">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Endereço </th>
+                    <td mat-cell *matCellDef="let element"> {{element.adress}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="kinshipId">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Parentesco </th>
+                    <td mat-cell *matCellDef="let element"> {{element.kinshipId}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Nome </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Telefone </th>
+                    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="rg">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> RG </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rg}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="visitDate">
+                    <th mat-header-cell *matHeaderCellDef class="bgBlue"> Data da Visitação </th>
+                    <td mat-cell *matCellDef="let element"> {{element.visitDate | date: 'dd/MM/yyyy - hh:mm'}} horas </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </mat-card-content>       
 
     </mat-card>
 </div>

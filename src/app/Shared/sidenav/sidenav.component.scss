@@ -15,5 +15,20 @@ a{
   
   .mat-list-item-content{
     color: white;
+    position:fixed; 
+    height:500px;
+    border:solid 2px red;
+  }
+
+  .mat-list-base{
+    position: fixed;
+  }
+
+  .nav-caption{
+    font-size: 13px;
+  }
+
+  .mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    height: 34px;
   }
   
