@@ -1,0 +1,82 @@
+<div class="container">
+    <mat-card class="card" style="height: 100px; background-color: #b1b1b1;">
+        <mat-card-header>
+            <mat-card-header>
+                <mat-card-title>ÁREA ADMINISTRATIVA - <b>Edição de Acolhido </b></mat-card-title>
+            </mat-card-header>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="send">
+                <button class="sendButton" mat-raised-button color="primary"
+                    (click)="onNavigateTo('/admin-configuration')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">engineering
+                    </mat-icon>
+                    Configurações Administrativas
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/list-users')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">view_lists
+                    </mat-icon>
+                    Lista de todos os usuários
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/sheltered-edit')"
+                    disabled>
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">elderly
+                    </mat-icon>
+                    Edição de Acolhido
+                </button>
+                <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('//log-info')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">info</mat-icon>
+                    Log de usuários
+                </button>
+                <button mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered-list')"
+                    class="sendButton" disabled>
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">
+                        elderly</mat-icon>
+                    &nbsp; Aprovação de acolhido cadastrado
+                </button>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+
+    <mat-card class="card" style="min-height: 700px;">
+        <mat-card-header>
+            <mat-card-title>Ficha de edição de acolhidos cadastrados</mat-card-title>
+            <mat-card-subtitle>Clique em <b>Finalizar Edição</b> somente após preencher cada uma das 3 Etapas
+            </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-header style="padding-bottom: 30px; display: grid; padding-left: 42px;height:50px">
+            <form [formGroup]="comboSelectShelt">
+                <mat-form-field class='shelteredName'>
+                    <mat-label>Selecione o Acolhido</mat-label>
+                    <mat-select formControlName="sheltList" (selectionChange)="onOptionsSelected()">
+                        <mat-option *ngFor="let shelt of this.shelteredModel" value="{{shelt.id}}">{{shelt.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </mat-card-header>
+
+        <mat-card-header style="padding-bottom: 30px; display: grid; padding-left: 42px;" *ngIf="isPopulated">
+            <mat-tab-group animationDuration="500ms">
+                <!--TAB 1-->
+                <mat-tab label="Informações Basicas">
+                    <!--1-->
+                    <mat-form-field class='shelteredName'>
+                        <input matInput placeholder="{{nomeDoAcolhido}}" formControlName="name" maxlength="60" />
+                    </mat-form-field>
+                </mat-tab>
+                <!--TAB 2-->
+                <mat-tab label="Informações Gerais"></mat-tab>
+                <!--TAB 3-->
+                <mat-tab label="Dados do Responsavel"></mat-tab>
+            </mat-tab-group>
+        </mat-card-header>
+    </mat-card>
+
+</div>

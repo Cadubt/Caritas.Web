@@ -17,9 +17,7 @@ export class ShelteredService {
    * Method to get a List of Sheltered Items
    * @returns 
    */
-  getShelteredList(sheltStatus?: number, approvalStatus?: string) {
-    console.log(sheltStatus + " " + approvalStatus)
-    
+  getShelteredList(sheltStatus?: number, approvalStatus?: string) {    
     const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
 
     if (sheltStatus !== undefined)    

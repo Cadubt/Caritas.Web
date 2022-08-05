@@ -30,8 +30,10 @@ import { LogInfoModule } from './Pages/log-info/log-info.module';
 import { AuthorizeSheltRegisterModule } from './Pages/authorize-shelt-register/authorize-shelt-register.module';
 import { LoginModule } from './Pages/login/login.module';
 import { ShelteredModule } from './Pages/sheltered/sheltered.module';
+import { ShelteredEditModule } from './Pages/sheltered-edit/sheltered-edit.module';
 import { FilterPipe } from './Shared/pipes/filter.pipe';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     ListUsersModule,
     LogInfoModule,
     AuthorizeSheltRegisterModule,
-    ShelteredModule
+    ShelteredModule,
+    ShelteredEditModule
     
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],//Para exibir as datas dos datepickers em pt-BR
