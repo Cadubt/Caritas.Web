@@ -1,16 +1,46 @@
 export class ShelteredModel{
+    public acceptsToBeWelcomed!: boolean;
     public address!: string;
     public age!: number;
-    public birthDate!: string;
+    public anotherInstitutionName!: string;
+    public anyOccurrence!: string;
+    public approvalStatus!: string;
+    public beenAnotherInstitution!: boolean;
+    public city!: string;
+    public controlledMedicine!: string;
+    public disabilit!: string;
+    public drinker!: boolean;
     public bloodTyping!: string;
     public createdAt!: string;
     public deceaseAt!: string;
     public deletedAt!: string;
     public entryDate!: string;
+    public feedsItself!: boolean;
+    public gender!: string;
     public id!: number;
     public name!: string;
     public perfilImage!: string;
     public phone!: string;
     public statusId!: number;
-    }
+    public goOutAline!: boolean;
+    public hasIncome!: boolean;
+    public hasMedicalTreatment!: boolean;
+    public healthProblem!: string;
+    public howFindOutShelter!: string;
+    public howMoves!: string;
+    public incomeAmount!: number;
+    public maritalStatus!: string;
+    public medicalInsurance!: string;
+    public nationality!: string;
+    public neighborhood!: string;
+    public residesIn!: string;
+    public responsibleAddress!: string;
+    public responsibleKinship!: string;
+    public responsibleName!: string;
+    public responsibleNeighborhood!: string;
+    public responsiblePhone!: string;
+    public smoker!: boolean;
+    public sourceOfIncome!: string;
+    public whichHospital!: string;
+}
     
