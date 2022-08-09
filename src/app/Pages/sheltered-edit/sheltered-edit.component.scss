@@ -12,6 +12,17 @@ mat-form-field, mat-form-field-wrapper, mat-form-field-flex {
     max-height: fit-content;
     width:80%;
   }
+  .photo {
+    height: 100px;
+    width: 110px;
+    margin-left:20px;
+    border:solid 2px gray;
+  }
+  .sheltName{
+    height: 100px;
+    width: 100px;
+    border:solid 2px gray;
+  }
 
 .card {
     max-height: fit-content;

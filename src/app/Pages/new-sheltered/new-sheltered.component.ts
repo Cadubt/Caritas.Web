@@ -209,10 +209,4 @@ export class NewShelteredComponent implements OnInit {
     );
     // window.location.href = "dashboard";
   }
-
-  onOptionsSelected() {
-    console.log(this.basicForm.get('bloodTyping')!.value);
-    
-  }
-
 }

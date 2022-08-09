@@ -40,4 +40,11 @@ export class ShelteredService {
     return this.http.post(`${API_URL}Sheltered/Create`, FormData, {headers:headerToken})
   }
 
+
+  updateSheltered(FormData:any): Observable<any> {
+    const headerToken = new HttpHeaders({ Authorization: "Bearer " + sessionStorage.getItem("token")});
+
+    return this.http.put(`${API_URL}Sheltered/Update`, FormData, {headers:headerToken})
+  }
+
 }

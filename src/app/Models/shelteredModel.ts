@@ -2,13 +2,14 @@ export class ShelteredModel{
     public acceptsToBeWelcomed!: boolean;
     public address!: string;
     public age!: number;
+    public birthDate!: string;
     public anotherInstitutionName!: string;
     public anyOccurrence!: string;
     public approvalStatus!: string;
     public beenAnotherInstitution!: boolean;
     public city!: string;
     public controlledMedicine!: string;
-    public disabilit!: string;
+    public disability!: string;
     public drinker!: boolean;
     public bloodTyping!: string;
     public createdAt!: string;
