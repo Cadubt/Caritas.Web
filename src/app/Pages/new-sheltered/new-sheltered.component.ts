@@ -209,5 +209,4 @@ export class NewShelteredComponent implements OnInit {
     );
     // window.location.href = "dashboard";
   }
-
 }

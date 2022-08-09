@@ -17,6 +17,7 @@ import { ShelteredComponent } from './Pages/sheltered/sheltered.component';
 import { SocialServiceComponent } from './Pages/social-service/social-service.component';
 import { UserConfigurationComponent } from './Pages/user-configuration/user-configuration.component';
 import { UserDashboardComponent } from './Pages/user-dashboard/user-dashboard.component';
+import { ShelteredEditComponent } from './Pages/sheltered-edit/sheltered-edit.component';
 
 const routes: Routes = [
 
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path: 'sheltered',
     component: ShelteredComponent ,
+  },
+  {
+    path: 'sheltered-edit',
+    component: ShelteredEditComponent ,
   },
 
 ];
