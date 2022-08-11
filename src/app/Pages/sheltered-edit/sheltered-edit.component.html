@@ -53,16 +53,16 @@
 
         <mat-card-header style="padding-top: 30px;padding-bottom: 45px; display: grid; padding-left: 10px;height:50px">
             <form [formGroup]="comboSelectShelt">
-                    <img *ngIf="this.sheltImage" mat-card-image class="photo" alt="."
-                        src='http://gestaocaritas.com.br/caritas-acolhidos/{{this.sheltImage}}.jpg'>
-                    <!-- <h3 class="sheltName">{{this.sheltName}}</h3> -->
-                    <mat-form-field class='shelteredName'>
+                <img *ngIf="this.sheltImage" mat-card-image class="photo" alt="."
+                    src='http://gestaocaritas.com.br/caritas-acolhidos/{{this.sheltImage}}.jpg'>
+                <!-- <h3 class="sheltName">{{this.sheltName}}</h3> -->
+                <mat-form-field class='shelteredName'>
 
-                <mat-label>Selecione o Acolhido</mat-label>
-                <mat-select formControlName="sheltList" (selectionChange)="onOptionsSelected()">
-                    <mat-option *ngFor="let shelt of this.shelteredModel" value="{{shelt.id}}">{{shelt.name}}
-                    </mat-option>
-                </mat-select>
+                    <mat-label>Selecione o Acolhido</mat-label>
+                    <mat-select formControlName="sheltList" (selectionChange)="onOptionsSelected()">
+                        <mat-option *ngFor="let shelt of this.shelteredModel" value="{{shelt.id}}">{{shelt.name}}
+                        </mat-option>
+                    </mat-select>
                 </mat-form-field>
             </form>
         </mat-card-header>
@@ -318,6 +318,14 @@
                                 class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">elderly
                             </mat-icon>
                             Alterar Acolhido
+                        </button>
+                    </div>
+                    <div class="backButton">
+                        <button mat-raised-button color="primary" (click)="openMyModal('oi','')">
+                            <mat-icon _ngcontent-rex-c82="" role="img"
+                                class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">elderly
+                            </mat-icon>
+                            Modal
                         </button>
                     </div>
                 </mat-tab>

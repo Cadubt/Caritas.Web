@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { ShelteredModel } from 'src/app/Models/shelteredModel';
+import { ModalService } from 'src/app/Core/modal.service';
+import { Subscription } from 'rxjs';
+import { ListUsersComponent } from '../list-users/list-users.component';
+import { ShelteredEditModalComponent } from './sheltered-edit-modal/sheltered-edit-modal.component';
 
 @Component({
   selector: 'app-sheltered-edit',
@@ -15,8 +19,13 @@ export class ShelteredEditComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private shelteredService: ShelteredService,
-    private router: Router) {
+    private router: Router,
+    private modalService: ModalService) {
   }
+
+  @ViewChild('modal', { read: ViewContainerRef, static: true })
+  entry!: ViewContainerRef;
+  sub!: Subscription;
 
   shelteredModel: ShelteredModel[] = [];
   selectedSheltId: any;
@@ -40,6 +49,15 @@ export class ShelteredEditComponent implements OnInit {
   onNavigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
   }
+
+  openMyModal(titulo:string, conteudo:string) {
+    // MyComponent é o componente que será renderizado dentro do seu body
+        this.sub = this.modalService
+          .openModal(this.entry, titulo, ShelteredEditModalComponent)
+          .subscribe((v) => {
+            // dispara quando é aberto o modal
+          });
+      }
 
   /**
    * Method to get a List of Sheltered Items
@@ -200,12 +218,16 @@ export class ShelteredEditComponent implements OnInit {
     console.log(formData)
     this.shelteredService.updateSheltered(formData).subscribe(
       (res: any) => {
-        alert("Cadastro de acolhido, realizado com sucesso");
+        this.openMyModal("Cadastro de acolhido, realizado com sucesso","");
+        // alert("Cadastro de acolhido, realizado com sucesso");
       },
       (error: any) => {
-        alert("Erro ao cadastrar acolhido, entre em contato com o administrador do sistema - detalhes do erro: Verifique os campos dos formulários");
+        this.openMyModal("Erro ao cadastrar acolhido, entre em contato com o administrador do sistema - detalhes do erro: Verifique os campos dos formulários","");
+        
       }
     );
 
   }
 }
+
+
