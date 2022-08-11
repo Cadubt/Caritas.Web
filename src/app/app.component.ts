@@ -1,5 +1,6 @@
 import { Component, AfterViewChecked, ChangeDetectorRef } from '@angular/core';
 import { AuthService } from './Core/auth.service';
+import { LoaderService } from './Shared/loader/loader.service';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class AppComponent implements AfterViewChecked {
 
   constructor (
     private authService: AuthService,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    public loaderService: LoaderService
   ) { }
 
   ngOnInit(){
