@@ -14,8 +14,17 @@ mat-sidenav-container {
 }
 
 .loader-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 99;
     padding-top:1px;
+}
+
+.spinner-container {
+    position: absolute;
+    height:100%;
+    width: 100%;
+    background: black;
+    opacity: 0.2;
+    z-index: 99;
 }

@@ -36,6 +36,7 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { InterceptorService } from './Shared/loader/interceptor.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { InterceptorService } from './Shared/loader/interceptor.service';
     ShelteredModule,
     ShelteredEditModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [
