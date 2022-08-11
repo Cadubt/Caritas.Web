@@ -13,7 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { SidenavModule } from './Shared/sidenav/sidenav.module';
 import { FooterModule } from './Shared/footer/footer.module';
 import { DashboardModule } from './Pages/dashboard/dashboard.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FrontDeskModule } from './Pages/front-desk/front-desk.module';
 import { SocialServiceModule } from './Pages/social-service/social-service.module';
 import { NewShelteredModule } from './Pages/new-sheltered/new-sheltered.module';
@@ -34,6 +34,8 @@ import { ShelteredEditModule } from './Pages/sheltered-edit/sheltered-edit.modul
 import { FilterPipe } from './Shared/pipes/filter.pipe';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { InterceptorService } from './Shared/loader/interceptor.service';
 
 
 @NgModule({
@@ -55,8 +57,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SidenavModule,
     FooterModule,
     LoginModule,
-    DashboardModule, 
-    FrontDeskModule,   
+    DashboardModule,
+    FrontDeskModule,
     SocialServiceModule,
     NewShelteredModule,
     RecordVisitModule,
@@ -72,10 +74,14 @@ import { MatDialogModule } from '@angular/material/dialog';
     AuthorizeSheltRegisterModule,
     ShelteredModule,
     ShelteredEditModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatProgressBarModule
+
   ],
-  providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],//Para exibir as datas dos datepickers em pt-BR
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' },//Para exibir as datas dos datepickers em pt-BR
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
