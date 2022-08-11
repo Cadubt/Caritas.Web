@@ -4,6 +4,13 @@ import { Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 import { ShelteredModel } from 'src/app/Models/shelteredModel';
+import { MatDialog } from '@angular/material/dialog';
+import { ShelteredEditDialogComponent } from './sheltered-edit-dialog/sheltered-edit-dialog.component';
+
+export interface DialogData {
+  name: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-sheltered-edit',
@@ -15,7 +22,8 @@ export class ShelteredEditComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private shelteredService: ShelteredService,
-    private router: Router) {
+    private router: Router,
+    public dialog: MatDialog) {
   }
 
   shelteredModel: ShelteredModel[] = [];
@@ -39,6 +47,17 @@ export class ShelteredEditComponent implements OnInit {
 
   onNavigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
+  }
+
+  openDialog(text:string): void {
+    const dialogRef = this.dialog.open(ShelteredEditDialogComponent, {
+      width: '350px',
+      height: '200px',
+      data: {name: this.sheltName, text:text}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   /**
@@ -200,10 +219,10 @@ export class ShelteredEditComponent implements OnInit {
     console.log(formData)
     this.shelteredService.updateSheltered(formData).subscribe(
       (res: any) => {
-        alert("Cadastro de acolhido, realizado com sucesso");
+        this.openDialog(", realizado com sucesso");
       },
       (error: any) => {
-        alert("Erro ao cadastrar acolhido, entre em contato com o administrador do sistema - detalhes do erro: Verifique os campos dos formulários");
+        this.openDialog("Erro ao cadastrar acolhido, entre em contato com o administrador do sistema - detalhes do erro: Verifique os campos dos formulários");
       }
     );
 

@@ -33,6 +33,7 @@ import { ShelteredModule } from './Pages/sheltered/sheltered.module';
 import { ShelteredEditModule } from './Pages/sheltered-edit/sheltered-edit.module';
 import { FilterPipe } from './Shared/pipes/filter.pipe';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     LogInfoModule,
     AuthorizeSheltRegisterModule,
     ShelteredModule,
-    ShelteredEditModule
+    ShelteredEditModule,
+    MatDialogModule
     
   ],
   providers: [{provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}],//Para exibir as datas dos datepickers em pt-BR
