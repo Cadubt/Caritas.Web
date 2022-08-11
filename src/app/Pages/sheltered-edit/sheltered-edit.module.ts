@@ -13,10 +13,11 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { ShelteredEditComponent } from './sheltered-edit.component';
 import { MatCardModule } from '@angular/material/card';
+import { ShelteredEditDialogComponent } from './sheltered-edit-dialog/sheltered-edit-dialog.component';
 
 
 @NgModule({
-  declarations: [ShelteredEditComponent],
+  declarations: [ShelteredEditComponent, ShelteredEditDialogComponent],
   imports: [
     CommonModule,
     MatCardModule,
