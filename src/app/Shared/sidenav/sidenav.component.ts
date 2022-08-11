@@ -12,25 +12,25 @@ export class SidenavComponent implements OnInit {
   menuList: any;
 
   constructor(private router: Router,
-              private service: SidenavService) { }
+    private service: SidenavService) { }
 
   ngOnInit(): void {
-    
+
     this.getMenuList()
   }
   public onSidenavClose = () => {
     this.sidenavClose.emit();
   }
 
-  navigateTo(pageName: any){
+  navigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
     this.onSidenavClose();
   }
 
-  getMenuList(){
+  getMenuList() {
     this.service.getMenuList().subscribe((res: any) => {
-    this.menuList = res.data
-    }) 
+      this.menuList = res.data
+    })
   }
 
 }
