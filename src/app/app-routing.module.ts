@@ -18,6 +18,7 @@ import { SocialServiceComponent } from './Pages/social-service/social-service.co
 import { UserConfigurationComponent } from './Pages/user-configuration/user-configuration.component';
 import { UserDashboardComponent } from './Pages/user-dashboard/user-dashboard.component';
 import { ShelteredEditComponent } from './Pages/sheltered-edit/sheltered-edit.component';
+import { SocialEditShelteredComponent } from './Pages/social-edit-sheltered/social-edit-sheltered.component';
 
 const routes: Routes = [
 
@@ -92,6 +93,10 @@ const routes: Routes = [
   {
     path: 'sheltered-edit',
     component: ShelteredEditComponent ,
+  },
+  {
+    path: 'social-edit-sheltered',
+    component: SocialEditShelteredComponent ,
   },
 
 ];

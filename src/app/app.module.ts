@@ -37,6 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { InterceptorService } from './Shared/loader/interceptor.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SocialEditShelteredModule } from './Pages/social-edit-sheltered/social-edit-sheltered.module';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     ShelteredEditModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    SocialEditShelteredModule
 
   ],
   providers: [
