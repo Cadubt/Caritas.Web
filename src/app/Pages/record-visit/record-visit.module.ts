@@ -11,11 +11,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { RecordVisitComponent } from './record-visit.component';
+import { RecordVisitDialogComponent } from './record-visit-dialog/record-visit-dialog.component';
 
 
 
 @NgModule({
-  declarations: [RecordVisitComponent],
+  declarations: [RecordVisitComponent, RecordVisitDialogComponent],
   imports: [
     CommonModule,
     MatCardModule,

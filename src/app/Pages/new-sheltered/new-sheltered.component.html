@@ -126,7 +126,7 @@
 
                         <mat-form-field class='residesin'>
                             <mat-label>Reside em</mat-label>
-                            <mat-select formControlName="residesin">
+                            <mat-select formControlName="residesin" required>
                                 <mat-option value="Casa Própria">Casa Própria</mat-option>
                                 <mat-option value="Alugada">Alugada</mat-option>
                                 <mat-option value="Com familiares">Com familiares</mat-option>
@@ -138,7 +138,7 @@
                         <!--5-->
                         <mat-form-field class='hasIncome'>
                             <mat-label>Recebe benefício</mat-label>
-                            <mat-select formControlName="hasIncome">
+                            <mat-select formControlName="hasIncome" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -155,7 +155,7 @@
                         <!--6-->
                         <mat-form-field class='acceptsToBeWelcomed'>
                             <mat-label>Aceita ser acolhido</mat-label>
-                            <mat-select formControlName="acceptsToBeWelcomed">
+                            <mat-select formControlName="acceptsToBeWelcomed" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -163,7 +163,7 @@
 
                         <mat-form-field class='beenAnotherInstitution'>
                             <mat-label>Já esteve em outra instituição</mat-label>
-                            <mat-select formControlName="beenAnotherInstitution">
+                            <mat-select formControlName="beenAnotherInstitution" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -186,7 +186,7 @@
                     <form [formGroup]="generalInfoForm">
                         <!--1-->
                         <mat-form-field class='healthProblem'>
-                            <input matInput placeholder="Tem problema de Saúde" formControlName="healthProblem" type="text" />
+                            <input matInput placeholder="Tem problema de Saúde" formControlName="healthProblem" type="text" required />
                         </mat-form-field>
 
                         <mat-form-field class='medicalInsurance'>
@@ -196,7 +196,7 @@
                         <!--2-->
                         <mat-form-field class='hasMedicalTreatment'>
                             <mat-label>Faz tratamento médico especializado</mat-label>
-                            <mat-select formControlName="hasMedicalTreatment">
+                            <mat-select formControlName="hasMedicalTreatment" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -208,18 +208,18 @@
 
                         <!--3-->
                         <mat-form-field class='disability'>
-                            <input matInput placeholder="Possui deficiencia" formControlName="disability" type="text" />
+                            <input matInput placeholder="Possui deficiencia" formControlName="disability" type="text" required />
                         </mat-form-field>
 
                         <mat-form-field class='howMoves'>
-                            <input matInput placeholder="Como se movimenta" formControlName="howMoves" type="text" />
+                            <input matInput placeholder="Como se movimenta" formControlName="howMoves" type="text" required />
                         </mat-form-field>
 
 
                         <!--4-->
                         <mat-form-field class='smoker'>
                             <mat-label>É fumante</mat-label>
-                            <mat-select formControlName="smoker">
+                            <mat-select formControlName="smoker" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -227,7 +227,7 @@
 
                         <mat-form-field class='drinker'>
                             <mat-label>Faz uso de bebida alcoólica</mat-label>
-                            <mat-select formControlName="drinker">
+                            <mat-select formControlName="drinker" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -235,7 +235,7 @@
 
                         <mat-form-field class='feedsItself'>
                             <mat-label>Se alimenta sozinho</mat-label>
-                            <mat-select formControlName="feedsItself">
+                            <mat-select formControlName="feedsItself" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -248,7 +248,7 @@
                         <!--5-->
                         <mat-form-field class='goOutAline'>
                             <mat-label>Sai à rua sozinho</mat-label>
-                            <mat-select formControlName="goOutAline">
+                            <mat-select formControlName="goOutAline" required>
                                 <mat-option value=true>Sim</mat-option>
                                 <mat-option value=false>Não</mat-option>
                             </mat-select>
@@ -266,16 +266,16 @@
                 <mat-tab label="Dados do Responsavel">
                     <form [formGroup]="responsibleForm">
                         <mat-form-field class='responsiblePersonName'>
-                            <input matInput placeholder="Nome do Contato" formControlName="responsibleName" type="text" />
+                            <input matInput placeholder="Nome do Contato" formControlName="responsibleName" type="text" required />
                         </mat-form-field>
                         <mat-form-field class=''>
-                            <input matInput placeholder="Parentesco" formControlName="responsibleKinship" type="text" />
+                            <input matInput placeholder="Parentesco" formControlName="responsibleKinship" type="text" required/>
                         </mat-form-field>
                         <mat-form-field class=''>
-                            <input matInput placeholder="Telefone" formControlName="responsiblePhone" type="text" />
+                            <input matInput placeholder="Telefone" formControlName="responsiblePhone" type="text"/>
                         </mat-form-field>
                         <mat-form-field class=''>
-                            <input matInput placeholder="Endereço" formControlName="responsibleAddress" type="text" />
+                            <input matInput placeholder="Endereço" formControlName="responsibleAddress" type="text"/>
                         </mat-form-field>
                         <mat-form-field class=''>
                             <input matInput placeholder="Bairro" formControlName="responsibleNeighborhood" type="text" />

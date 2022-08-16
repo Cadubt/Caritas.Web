@@ -3,6 +3,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ShelteredService } from 'src/app/Core/sheltered.service';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NewShelteredDialogComponent } from './new-sheltered-dialog/new-sheltered-dialog.component';
+
+export interface DialogData {
+  error: boolean;
+  text: string;
+}
 
 @Component({
   selector: 'app-new-sheltered',
@@ -19,7 +26,8 @@ export class NewShelteredComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private shelteredService: ShelteredService,
-    private router: Router) {
+    private router: Router,
+    public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -29,6 +37,17 @@ export class NewShelteredComponent implements OnInit {
 
   onNavigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
+  }
+
+  openDialog(text: string, erro: boolean): void {
+    const dialogRef = this.dialog.open(NewShelteredDialogComponent, {
+      width: '350px',
+      height: '170px',
+      data: { text: text, error:erro }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   createForms() {
@@ -201,12 +220,11 @@ export class NewShelteredComponent implements OnInit {
     console.log(formData)
     this.shelteredService.createSheltered(formData).subscribe(
       (res: any) => {
-        alert("Cadastro de acolhido, realizado com sucesso");
+        this.openDialog("Cadastro de acolhido, realizado com sucesso", false);
       },
       (error: any) => {
-        alert("Erro ao cadastrar acolhido, entre em contato com o administrador do sistema - detalhes do erro: Verifique os campos dos formulários");
+        this.openDialog("Verifique e preencha os campos obrigatórios indicados com *", true);
       }
     );
-    // window.location.href = "dashboard";
   }
 }

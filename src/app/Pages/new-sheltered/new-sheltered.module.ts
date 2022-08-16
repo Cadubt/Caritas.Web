@@ -12,12 +12,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSelectModule } from '@angular/material/select';
 import { NewShelteredComponent } from './new-sheltered.component';
+import { NewShelteredDialogComponent } from './new-sheltered-dialog/new-sheltered-dialog.component';
 
 
 
 
 @NgModule({
-  declarations: [NewShelteredComponent],
+  declarations: [NewShelteredComponent, NewShelteredDialogComponent],
   imports: [
     CommonModule,
     MatCardModule,

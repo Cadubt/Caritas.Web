@@ -4,11 +4,6 @@
             <mat-card-title><b>ÁREA ADMINISTRATIVA - Cáritas</b></mat-card-title>
          </mat-card-header>
          <mat-card-content>
-            <!-- <app-admin-buttons>
-
-            </app-admin-buttons> -->
-
-
              <div class="send">
                  <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/admin-configuration')">
                      <mat-icon _ngcontent-rex-c82="" role="img"
@@ -20,16 +15,16 @@
                          class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">view_lists</mat-icon>
                      Lista de todos os usuários
                  </button>
+                 <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/sheltered-edit')">
+                    <mat-icon _ngcontent-rex-c82="" role="img"
+                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">elderly</mat-icon>
+                    Edição de Acolhido
+                </button>
                  <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('//log-info')">
                      <mat-icon _ngcontent-rex-c82="" role="img"
                          class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">info</mat-icon>
                      Log de usuários
-                 </button>
-                 <button class="sendButton" mat-raised-button color="primary" (click)="onNavigateTo('/sheltered-edit')">
-                    <mat-icon _ngcontent-rex-c82="" role="img"
-                        class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true">info</mat-icon>
-                    Edição de Acolhido
-                </button>
+                 </button>                 
                  <button mat-raised-button color="primary" (click)="onNavigateTo('/new-sheltered-list')" class="sendButton" disabled>
                     <mat-icon _ngcontent-rex-c82="" role="img" class="mat-icon notranslate material-icons mat-icon-no-color"
                       aria-hidden="true">
@@ -44,7 +39,6 @@
                   </button>
              </div>
          </mat-card-content>
-         
  
      </mat-card>
      <mat-card class="card" style="min-height: 800px;">
