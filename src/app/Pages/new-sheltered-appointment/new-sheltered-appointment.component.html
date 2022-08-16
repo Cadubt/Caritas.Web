@@ -56,23 +56,23 @@
           </mat-form-field>
   
           <mat-form-field class='shelteredName'>
-            <input matInput placeholder="Nome do acolhido" formControlName="shelteredName">
+            <input matInput placeholder="Nome do acolhido" formControlName="shelteredName" required>
           </mat-form-field>
   
           <mat-form-field class='shelteredAge'>
-            <input matInput placeholder="Idade do acolhido" formControlName="shelteredAge">
+            <input matInput placeholder="Idade do acolhido" formControlName="shelteredAge" required>
           </mat-form-field>
   
           <mat-form-field class='shelteredPhone'>
-            <input matInput placeholder="Telefone do acolhido" formControlName="shelteredPhone">
+            <input matInput placeholder="Telefone do acolhido" formControlName="shelteredPhone" required>
           </mat-form-field>
   
           <mat-form-field class='shelteredAddress'>
-            <input matInput placeholder="Logradouro" formControlName="shelteredAddress">
+            <input matInput placeholder="Logradouro" formControlName="shelteredAddress" required>
           </mat-form-field>
   
           <mat-form-field class='responsibleName'>
-            <input matInput placeholder="Nome do responsável" formControlName="responsibleName">
+            <input matInput placeholder="Nome do responsável" formControlName="responsibleName" required>
           </mat-form-field>
   
           <mat-form-field class='relativeness'>
@@ -104,7 +104,7 @@
   
           <mat-form-field class='interviewDate'>
             <mat-label>Data da entrevista</mat-label>
-            <input matInput [matDatepicker]="interviewDate" formControlName="interviewDate">
+            <input matInput [matDatepicker]="interviewDate" formControlName="interviewDate" required>
             <mat-datepicker-toggle matSuffix [for]="interviewDate"></mat-datepicker-toggle>
             <mat-datepicker #interviewDate></mat-datepicker>
           </mat-form-field>
@@ -114,7 +114,7 @@
           </mat-form-field>
   
           <mat-form-field class='AppointmentResponsible'>
-            <input matInput placeholder="Responsável pelo Agendamento" formControlName="scheduleResponsible">
+            <input matInput placeholder="Responsável pelo Agendamento" formControlName="scheduleResponsible" required>
           </mat-form-field>
   
           <div class="send">

@@ -11,10 +11,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { NewShelteredAppointmentComponent } from './new-sheltered-appointment.component';
+import { NewShelteredAppointmentDialogComponent } from './new-sheltered-appointment-dialog/new-sheltered-appointment-dialog.component';
 
 
 @NgModule({
-  declarations: [NewShelteredAppointmentComponent],
+  declarations: [NewShelteredAppointmentComponent, NewShelteredAppointmentDialogComponent],
   imports: [
     CommonModule,
     MatCardModule,

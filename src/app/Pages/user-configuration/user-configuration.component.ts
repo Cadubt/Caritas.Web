@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserConfigurationService } from 'src/app/Core/user-configuration.service';
+import { UserConfigurationDialogComponent } from './user-configuration-dialog/user-configuration-dialog.component';
+
+export interface DialogData {
+  name: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-user-configuration',
@@ -19,7 +26,8 @@ export class UserConfigurationComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private userConfigurationService: UserConfigurationService
+    private userConfigurationService: UserConfigurationService,
+    public dialog: MatDialog
   ) {
 
   }
@@ -35,6 +43,18 @@ export class UserConfigurationComponent implements OnInit {
 
   onNavigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
+  }
+
+  openDialog(text: string): void {
+    const dialogRef = this.dialog.open(UserConfigurationDialogComponent, {
+      width: '350px',
+      height: '150px',
+      data: { text: text }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+    });
   }
 
   createForm() {
@@ -95,19 +115,21 @@ export class UserConfigurationComponent implements OnInit {
           if ((this.usuario.email == null) || (this.usuario.email == "")) {
             this.usuario.email = sessionStorage.getItem("userEmail");
           }
-          this.userConfigurationService.updateUser(this.usuario).subscribe(res => { });
-
-          alert("Usuário atualizado com sucesso");
-          window.location.reload();
+          this.userConfigurationService.updateUser(this.usuario).subscribe(
+            (res: any) => { 
+              this.openDialog("Alterações feitas com sucesso!");
+            },
+            (error: any) => {
+              this.openDialog("Ocorreu o seguinte erro " + error.toString());
+            }
+          );
         }
         else {
-          alert('As senhas não coincidem');
-          window.location.reload();
+          this.openDialog("As senhas não coincidem");
         }
       }
       else {
-        alert("Sua senha atual esta errada");
-        window.location.reload();
+        this.openDialog("Sua senha atual esta errada");
       }
 
 
@@ -122,12 +144,17 @@ export class UserConfigurationComponent implements OnInit {
       if ((this.usuario.email == null) || (this.usuario.email == "")) {
         this.usuario.email = sessionStorage.getItem("userEmail");
       }
-      this.userConfigurationService.updateUser(this.usuario).subscribe(res => { });
-
-      alert("Usuário atualizado com sucesso");
-      sessionStorage.setItem("userName",this.usuario.name)
-      sessionStorage.setItem("userEmail",this.usuario.email)
-      window.location.reload();
+      this.userConfigurationService.updateUser(this.usuario).subscribe(
+        (res: any) => { 
+          this.openDialog("Alterações feitas com sucesso!");
+        },
+        (error: any) => {
+          this.openDialog("Ocorreu o seguinte erro " + error.toString());
+        }
+      );
+      sessionStorage.setItem("userName", this.usuario.name)
+      sessionStorage.setItem("userEmail", this.usuario.email)
+      
     }
   }
 }

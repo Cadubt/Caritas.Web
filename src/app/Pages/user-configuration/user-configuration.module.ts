@@ -11,10 +11,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { UserConfigurationComponent } from './user-configuration.component';
+import { UserConfigurationDialogComponent } from './user-configuration-dialog/user-configuration-dialog.component';
 
 
 @NgModule({
-  declarations: [UserConfigurationComponent],
+  declarations: [UserConfigurationComponent, UserConfigurationDialogComponent],
   imports: [
     CommonModule,
     MatButtonModule,

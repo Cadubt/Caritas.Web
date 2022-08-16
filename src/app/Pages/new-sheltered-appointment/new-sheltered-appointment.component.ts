@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ScheduleSheetService } from 'src/app/Core/schedule-sheet.service';
+import { NewShelteredAppointmentDialogComponent } from './new-sheltered-appointment-dialog/new-sheltered-appointment-dialog.component';
 
+export interface DialogData {
+  error: boolean;
+  text: string;
+}
 
 @Component({
   selector: 'app-new-sheltered-appointment',
@@ -16,7 +22,8 @@ export class NewShelteredAppointmentComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private scheduleSheetService: ScheduleSheetService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +31,19 @@ export class NewShelteredAppointmentComponent implements OnInit {
 
   }
 
-  onNavigateTo(pageName:any){
+  onNavigateTo(pageName: any) {
     this.router.navigate([`/${pageName}`]);
+  }
+
+  openDialog(text: string, erro: boolean): void {
+    const dialogRef = this.dialog.open(NewShelteredAppointmentDialogComponent, {
+      width: '350px',
+      height: '180px',
+      data: { text: text, error: erro }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   createForm() {
@@ -52,8 +70,14 @@ export class NewShelteredAppointmentComponent implements OnInit {
     formData.kinshipId = parseInt(formData.kinshipId);
     formData.shelteredAge = parseInt(formData.shelteredAge);
     formData.createdAt = formData.interviewDate;
-    // console.log(formData)
-    this.scheduleSheetService.createSchadule(formData).subscribe(res => { });
-    window.location.href = "sheltered-appointments";
+
+    this.scheduleSheetService.createSchadule(formData).subscribe(
+      (res: any) => {
+        this.openDialog("Salvo com Sucesso", false);
+       },
+      (error: any) => {
+        this.openDialog("Preencha os campos obrigatórios indicados em vermelho", true);
+       }
+    );
   }
 }
