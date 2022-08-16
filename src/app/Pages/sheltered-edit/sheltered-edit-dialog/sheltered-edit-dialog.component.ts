@@ -21,8 +21,7 @@ export class ShelteredEditDialogComponent implements OnInit {
 
   onOk(){
     this.dialogRef.close();
-    this.onNavigateTo(["admin-dashboard"]);
-    
+    this.onNavigateTo(["dashboard"]);    
   }
 
   onNavigateTo(pageName: any) {
