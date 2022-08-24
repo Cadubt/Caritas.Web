@@ -19,6 +19,12 @@ import { UserConfigurationComponent } from './Pages/user-configuration/user-conf
 import { UserDashboardComponent } from './Pages/user-dashboard/user-dashboard.component';
 import { ShelteredEditComponent } from './Pages/sheltered-edit/sheltered-edit.component';
 import { SocialEditShelteredComponent } from './Pages/social-edit-sheltered/social-edit-sheltered.component';
+import { NursingComponent } from './Pages/nursing/nursing.component';
+import { DoctorComponent } from './Pages/doctor/doctor.component';
+import { PsychologyComponent } from './Pages/psychology/psychology.component';
+import { PharmacyComponent } from './Pages/pharmacy/pharmacy.component';
+import { PhysiotherapistComponent } from './Pages/physiotherapist/physiotherapist.component';
+import { SocialAdvisorComponent } from './Pages/social-advisor/social-advisor.component';
 
 const routes: Routes = [
 
@@ -98,6 +104,31 @@ const routes: Routes = [
     path: 'social-edit-sheltered',
     component: SocialEditShelteredComponent ,
   },
+  {
+    path: 'nursing',
+    component: NursingComponent ,
+  },
+  {
+    path: 'doctor',
+    component: DoctorComponent ,
+  },
+  {
+    path: 'psychology',
+    component: PsychologyComponent ,
+  },
+  {
+    path: 'pharmacy',
+    component: PharmacyComponent ,
+  },
+  {
+    path: 'physiotherapist',
+    component: PhysiotherapistComponent ,
+  },
+  {
+    path: 'socialAdvisor',
+    component: SocialAdvisorComponent ,
+  },
+
 
 ];
 

@@ -38,6 +38,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { InterceptorService } from './Shared/loader/interceptor.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SocialEditShelteredModule } from './Pages/social-edit-sheltered/social-edit-sheltered.module';
+import { NursingModule } from './Pages/nursing/nursing.module';
 
 
 @NgModule({
@@ -79,7 +80,8 @@ import { SocialEditShelteredModule } from './Pages/social-edit-sheltered/social-
     MatDialogModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    SocialEditShelteredModule
+    SocialEditShelteredModule,
+    NursingModule
 
   ],
   providers: [
