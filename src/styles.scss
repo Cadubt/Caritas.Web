@@ -12,7 +12,9 @@ body {
   color:#e4ddf7 !important;
 }
 .mat-drawer-inner-container{
-  background-image: url(http://gestaocaritas.com.br/caritas-acolhidos/caritasBg.png);
+  background-image: url(../src/images/caritasBg.png);
+  // background-image: url(http://gestaocaritas.com.br/caritas-acolhidos/caritasBg.png);
+
     background-attachment: fixed;
 }
 html, body { height: 100%; }
